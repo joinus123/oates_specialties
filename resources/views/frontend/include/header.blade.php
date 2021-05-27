@@ -7,12 +7,12 @@
       <title></title>
       <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
       <link rel="icon" type="image/png" href="#">
-      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/aos.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/aos.min.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/custom.css')}}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&display=swap&subset=latin-ext" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
@@ -34,7 +34,23 @@
                   <div class="col-md-10">
                      <div class="top-header-sec2 pull-right">
                         <ul class="list-inline">
-                           <li class="list-inline-item"><a href="{{route('login')}}"><img src="assets/images/top-header-img-2.png"> &nbsp; log in</a> / <a href="{{ route('register') }}">sign up</a></li>
+
+                           <li class="list-inline-item">
+                              @guest
+                              <a href="{{route('login')}}"><img src="assets/images/top-header-img-2.png"> &nbsp; log in</a> / <a href="{{ route('register') }}">sign up</a>
+                              @else
+                              {{ Auth::user()->name }}
+                              
+                              <a class="login dropdown-item dropdown-menu-right" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                              @csrf
+                          </form>
+                              @endguest
+                           </li>
                            <li class="list-inline-item"><a href="{{route('user-account')}}"><img src="assets/images/top-header-img-3.png"> &nbsp;my account</a></li>
                            <li class="list-inline-item"><a href="{{route('about.us')}}"><img src="assets/images/top-header-img-4.png"> &nbsp; about us</a></li>
                            <li class="list-inline-item"><a href="#"><img src="assets/images/top-header-img-5.png"> &nbsp; blog</a></li>

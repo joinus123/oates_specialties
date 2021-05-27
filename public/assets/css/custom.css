@@ -127,6 +127,9 @@ section.top-header {
     color: #940026;
     transition: 0.5s;
 }
+.top-header-wrapper a.login{
+    background: #f8f9fa !important;
+}
 .shopping {
     text-transform: unset !important;
     font-size: 13px;
