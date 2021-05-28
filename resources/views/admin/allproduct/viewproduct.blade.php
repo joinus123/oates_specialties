@@ -6,20 +6,21 @@
         <div class="container-fluid">
             <div class="content">
                 <div class="container-fluid">
+                  @if ($message = Session::get('success'))
+                  <div class="alert alert-success alert-block">
+                   <button type="button" class="close" data-dismiss="alert">×</button>
+                   <strong>{{ $message }}</strong>
+                  </div>
+                   <br>
+                  @endif
                   <div>
                     <h1 style="display:inline-block;">
-                      Banner Slider
+                      All Product 
                      </h1>
-                     @if ($message = Session::get('success'))
-                     <div class="alert alert-success alert-block">
-                      <button type="button" class="close" data-dismiss="alert">×</button>
-                      <strong>{{ $message }}</strong>
-                     </div>
-                      <br>
-                     @endif
+                   
                     <h3 class="box-title" style="display:inline-block;">List</h3>
                   </div>
-                  <a class="btn btn-info" href="{{route('addbanner-slider')}}">Add New</a>
+                  <a class="btn btn-info" href="{{route('add-product')}}">Add New</a>
                   <hr style="border-top: 1px solid #504444;">
                   <div class="col-md-12">
                     <div class="box-body">
@@ -28,10 +29,10 @@
                       <thead>
                         <tr>
                           <td>S.no</td>
-                          <td>Heading One</td>
-                          <td>Heading Two</td>
-                          <td>Heading Three</td>
-                          <td>Banner Image</td>
+                          <td>product Name</td>
+                          <td>product Orignal Price</td>
+                          <td>product Discount Price</td>
+                          <td>Product Image</td>
                           <td>Actions</td>
                         </tr>
                       </thead>
@@ -39,16 +40,17 @@
 
 
 
-                    @foreach ($bannerslider as $view)
+                    @foreach ($product as $view)
                         <tr>
                           <td>{{$view->id}}</td>
-                          <td>{{$view->heading_one}}</td>
-                          <td>{{$view->heading_two}}</td>
-                          <td>{{$view->heading_three}}</td>
-                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->bannerslider_image)}}"></td>
+                          <td>{{$view->name}}</td>
+                          <td>{{$view->orignal_price}}</td>
+                          <td>{{$view->discounted_price}}</td>
+                       
+                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->img)}}"></td>
                           <td>
-                            <a href="{{route('editbanner-slider',[$view->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
-                            <a href="{{route('delete-slider',[$view->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                            <a href="{{route('edit-product',[$view->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
+                            <a href="{{route('delete-product',[$view->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                           </td>
 
                         </tr>

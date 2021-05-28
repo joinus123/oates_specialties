@@ -45,8 +45,8 @@
                           <td>{{$view->brand_name}}</td>
                           <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->brand_logo)}}"></td>
                            <td>
-                            <a href=""><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
-                            <a href=""><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                            <a href="{{route('edit-brandlogo',['id'=>$view->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
+                            <a href="{{route('delete-brandlogo',['id'=>$view->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                           </td>
 
                         </tr>

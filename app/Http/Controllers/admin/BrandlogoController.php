@@ -22,8 +22,8 @@ class BrandlogoController extends Controller
     }
        
     public function  editbrandlogo($id){
-        // $view['view']=Brandlogo::find($id);
-        return view('admin.ourbrand.editbrandlogo');
+        $view['view']=Brandlogo::find($id);
+        return view('admin.ourbrand.editbrandlogo',$view);
        
     }
     
@@ -75,11 +75,11 @@ class BrandlogoController extends Controller
     
     
     
-            if($request->hasFile('brand_name')){
-            $path = $request->file('brand_name');
-            $path = $request->brand_name->store('public/media');
+            if($request->hasFile('brand_logo')){
+            $path = $request->file('brand_logo');
+            $path = $request->brand_logo->store('public/media');
             $path = basename($path);
-            $Brandlogo->brand_name = $path;
+            $Brandlogo->brand_logo = $path;
             }
     
     

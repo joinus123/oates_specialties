@@ -41,10 +41,34 @@ use Illuminate\Support\Facades\Auth;
 
      Route::get('/viewbrand', 'BrandlogoController@viewbrandlist')->name('view-brandlist');
      Route::get('/addbrandlogo', 'BrandlogoController@addbrandlogo')->name('addbrandlogo');
-     Route::get('/editbrandlogo/{id}', 'BrandlogoController@editbrandlogo')->name('editbrandlogo');
-     Route::post('/updatebrandlogo/{id}', 'brandlogorController@updatebrandlogo')->name('updatebrandlogo');
+     Route::get('/editbrandlogo/{id}', 'BrandlogoController@editbrandlogo')->name('edit-brandlogo');
+     Route::post('/updatebrandlogo/{id}', 'brandlogoController@updatebrandlogo')->name('update-brandlogo');
      Route::post('/submitbrandlogo', 'BrandlogoController@submitbrandlogo')->name('submitbrandlogo');
-     Route::get('/deletebrandlogo/{id}', 'BrandlogoController@deletebrandlogo')->name('deletebrandlogo');
+     Route::get('/deletebrandlogo/{id}', 'BrandlogoController@deletebrandlogo')->name('delete-brandlogo');
+
+
+     Route::get('/viewbestseller', 'BestsellerController@viewbestsellerlist')->name('view-bestsellerlist');
+     Route::get('/addbestseller', 'BestsellerController@addbestseller')->name('add-bestseller');
+     Route::get('/editbestseller/{id}', 'BestsellerController@editbestseller')->name('edit-bestseller');
+     Route::post('/updatebestseller/{id}', 'BestsellerController@updatebestseller')->name('update-bestseller');
+     Route::post('/submitbestseller', 'BestsellerController@submitbestseller')->name('submit-bestseller');
+     Route::get('/deletebestseller/{id}', 'BestsellerController@deletebestseller')->name('delete-bestseller');
+
+     Route::get('/viewcategory', 'CategoryController@viewcategory')->name('view-category');
+     Route::get('/addcategory', 'CategoryController@addcategory')->name('add-category');
+     Route::get('/editcategory/{id}', 'CategoryController@editcategory')->name('edit-category');
+     Route::post('/updatecategory/{id}', 'CategoryController@updatecategory')->name('update-category');
+     Route::post('/submitcategory', 'CategoryController@submitcategory')->name('submit-category');
+     Route::get('/deletecategory/{id}', 'CategoryController@deletecategory')->name('delete-category');
+
+
+     Route::get('/viewproduct', 'AllproductController@viewproduct')->name('view-product');
+     Route::get('/addproduct', 'AllproductController@addproduct')->name('add-product');
+     Route::get('/editproduct/{id}', 'AllproductController@editproduct')->name('edit-product');
+     Route::post('/updateproduct/{id}', 'AllproductController@updateproduct')->name('update-product');
+     Route::post('/submitproduct', 'AllproductController@submitproduct')->name('submit-product');
+     Route::get('/deleteproduct/{id}', 'AllproductController@deleteproduct')->name('delete-product');
+
 
 });
 

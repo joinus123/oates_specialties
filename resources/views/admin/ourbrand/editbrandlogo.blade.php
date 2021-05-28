@@ -8,13 +8,13 @@
         <h3 class="box-title" style="display:inline-block;">Edit</h3>
       </div>
       <div class="col-md-6">
-        <form role="form" action="" method="post" enctype="multipart/form-data">
+        <form role="form" action="{{route('update-brandlogo',[$view->id])}}" method="post" enctype="multipart/form-data">
             @csrf
           <div class="box-body">
 
             <div class="form-group">
               <label> Brand Logo <span class="dls"></span>Name </label>
-              <input type="name" class="form-control" id="logo_name"  name="logo_name" >
+              <input type="name" class="form-control" id="brand_name"  value="{{ $view->brand_name}}"  name="brand_name" >
               <span class="text-danger"></span>
             </div>
 
@@ -25,9 +25,9 @@
                     <div class="d-flex justify-content-between base-{{asset('admin/assets')}}/images-sec">
                         <label>Banner_slider_Image</label>
                     </div>
-                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#logo-icon').click()"
-                        src="" alt="">
-                    <input type="file" onchange="getFile(this)" name="logo-icon"  class="hidden"  id="logo-icon">
+                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#brand_logo').click()"
+                        src="{{asset('storage/media/'.$view->brand_logo)}}" alt="">
+                    <input type="file" onchange="getFile(this)" name="brand_logo"  class="hidden"  id="brand_logo">
                     <span class="text-danger"></span>
                 </div>
                 </div>
