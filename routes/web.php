@@ -38,21 +38,12 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/submitbannerslider', 'BannerController@submitbannerslider')->name('submit-slider');
      Route::get('/deletebanners/{id}', 'BannerController@deletebanner')->name('delete-slider');
 
-
      Route::get('/viewbrand', 'BrandlogoController@viewbrandlist')->name('view-brandlist');
      Route::get('/addbrandlogo', 'BrandlogoController@addbrandlogo')->name('addbrandlogo');
      Route::get('/editbrandlogo/{id}', 'BrandlogoController@editbrandlogo')->name('edit-brandlogo');
      Route::post('/updatebrandlogo/{id}', 'brandlogoController@updatebrandlogo')->name('update-brandlogo');
      Route::post('/submitbrandlogo', 'BrandlogoController@submitbrandlogo')->name('submitbrandlogo');
      Route::get('/deletebrandlogo/{id}', 'BrandlogoController@deletebrandlogo')->name('delete-brandlogo');
-
-
-     Route::get('/viewbestseller', 'BestsellerController@viewbestsellerlist')->name('view-bestsellerlist');
-     Route::get('/addbestseller', 'BestsellerController@addbestseller')->name('add-bestseller');
-     Route::get('/editbestseller/{id}', 'BestsellerController@editbestseller')->name('edit-bestseller');
-     Route::post('/updatebestseller/{id}', 'BestsellerController@updatebestseller')->name('update-bestseller');
-     Route::post('/submitbestseller', 'BestsellerController@submitbestseller')->name('submit-bestseller');
-     Route::get('/deletebestseller/{id}', 'BestsellerController@deletebestseller')->name('delete-bestseller');
 
      Route::get('/viewcategory', 'CategoryController@viewcategory')->name('view-category');
      Route::get('/addcategory', 'CategoryController@addcategory')->name('add-category');
@@ -61,7 +52,6 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/submitcategory', 'CategoryController@submitcategory')->name('submit-category');
      Route::get('/deletecategory/{id}', 'CategoryController@deletecategory')->name('delete-category');
 
-
      Route::get('/viewproduct', 'AllproductController@viewproduct')->name('view-product');
      Route::get('/addproduct', 'AllproductController@addproduct')->name('add-product');
      Route::get('/editproduct/{id}', 'AllproductController@editproduct')->name('edit-product');
@@ -69,7 +59,19 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/submitproduct', 'AllproductController@submitproduct')->name('submit-product');
      Route::get('/deleteproduct/{id}', 'AllproductController@deleteproduct')->name('delete-product');
 
+     Route::get('/viewblog', 'OurblogController@viewblog')->name('view-blog');
+     Route::get('/addblog', 'OurblogController@addblog')->name('add-blog');
+     Route::get('/editblog/{id}', 'OurblogController@editblog')->name('edit-blog');
+     Route::post('/updateblog/{id}', 'OurblogController@updateblog')->name('update-blog');
+     Route::post('/submitblog', 'OurblogController@submitblog')->name('submit-blog');
+     Route::get('/deleteblog/{id}', 'OurblogController@deleteblog')->name('delete-blog');
 
+     Route::get('/viewsocialmedialink', 'SocialmedialinkController@viewsocialmedialink')->name('view-socialmedialink');
+     Route::get('/addsocialmedialink', 'SocialmedialinkController@addsocialmedialink')->name('add-socialmedialink');
+     Route::get('/editsocialmedialink/{id}', 'SocialmedialinkController@editsocialmedialink')->name('edit-socialmedialink');
+     Route::post('/updatesocialmedialink/{id}', 'SocialmedialinkController@updatesocialmedialink')->name('update-socialmedialink');
+     Route::post('/submitsocialmedialink', 'SocialmedialinkController@submitsocialmedialink')->name('submit-socialmedialink');
+     Route::get('/deletesocialmedialink/{id}', 'SocialmedialinkController@deletesocialmedialink')->name('delete-socialmedialink');
 });
 
 });
@@ -89,6 +91,7 @@ Route::namespace('App\Http\Controllers\frontend')->group(function() {
     Route::get('walkup','AppController@walkup')->name('walkup');
     Route::get('cart','AppController@addcart')->name('add-cart');
     Route::get('checkout','AppController@checkout')->name('checkout');
+    Route::get('productcategory/{id}', 'AppController@productcategory')->name('productcategory');
 });
 Auth::routes();
 

@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ourblog extends Model
+class Socialmedialink extends Model
 {
     use HasFactory;
-    protected $table='blog';
+    protected $table='socialmedialink';
     protected $fillable = [
     'id',
-    'heading',
-	'description',
-   'image',
+    'socialmedialink_name',
+	'socialmedialink_image',
     ];
 }

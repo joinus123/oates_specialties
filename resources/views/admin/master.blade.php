@@ -53,16 +53,16 @@
                 <li><a href="{{route('view-brandlist')}}">Our Brand</a></li>
                 <li><a href="{{route('view-category')}}">Catogary Product</a></li>
                 <li><a href="{{route('view-product')}}">All Product</a></li>
-                <li><a href="">Featured Product</a></li>
-                <li><a href="">Best Seller Product</a></li>
-                <li><a href="">New Store Product</a></li>
+                <li><a href="{{route('view-blog')}}">Our Blog</a></li>
+                <li><a href="{{route('view-socialmedialink')}}">Social Media Icon</a></li>
                 <li><a href="">Banner Image</a></li>
-                <li><a href="">Social Media Icon</a></li>
-                <li><a href="">Our Blog</a></li>
                 <li><a href="">About Us Team</a></li>
                 <li><a href="">videos</a></li>
                 <li><a href="">FAQS</a></li>
                 <li><a href="">Contact-us</a></li>
+                <li><a href="">Featured Product</a></li>
+                <li><a href="">Best Seller Product</a></li>
+                <li><a href="">New Store Product</a></li>
 
 
             </ul>

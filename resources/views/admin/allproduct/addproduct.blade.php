@@ -1,4 +1,3 @@
-
 @extends('admin.master')
 @section('content')
 <div class="content">
@@ -44,15 +43,15 @@
 
 
 
-            <div class="row base-img-sec">
+              <div class="row base-img-sec">
                 <div class="col-xl-4 col-lg-6">
                     <div class="d-flex justify-content-between base-{{asset('admin/assets')}}/images-sec">
                         <label>Banner_slider_Image</label>
                     </div>
-                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#bannerslider_image').click()"
+                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#image').click()"
                         src="{{asset('admin/assets/img/Add-Property_06.jpg')}}" alt="">
-                    <input type="file" onchange="getFile(this)" name="img"  class="hidden"  id="bannerslider_image">
-                    <span class="text-danger">{{ $errors->first('bannerslider_image') }}</span>
+                    <input type="file" onchange="getFile(this)" name="image"  class="hidden"  id="image">
+                    <span class="text-danger">{{ $errors->first('image') }}</span>
                 </div>
                 </div>
               
@@ -88,7 +87,7 @@
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                   </select>
-                  <span class="text-danger">{{ $errors->first('featured_product') }}</span>
+                
                   </div>
       
         </div>
@@ -100,5 +99,5 @@
       </form>
     </div>
   </div>
-  </div>
+</div>
 @endsection

@@ -8,7 +8,7 @@
                 <div class="container-fluid">
                   <div>
                     <h1 style="display:inline-block;">
-                      Brand Logo
+                      Our Blog
                      </h1>
                      @if ($message = Session::get('success'))
                      <div class="alert alert-success alert-block">
@@ -19,7 +19,7 @@
                      @endif
                     <h3 class="box-title" style="display:inline-block;">List</h3>
                   </div>
-                  <a class="btn btn-info" href="">Add New</a>
+                  <a class="btn btn-info" href="{{route('add-blog')}}">Add New</a>
                   <hr style="border-top: 1px solid #504444;">
                   <div class="col-md-12">
                     <div class="box-body">
@@ -28,10 +28,9 @@
                       <thead>
                         <tr>
                           <td>S.no</td>
-                          <td>heading_one</td>
-                          <td>heading_two</td>
-                          <td>heading_three</td>
-                          <td>Banner_image</td>
+                          <td>Blog Heading</td>
+                          <td>Blog Description</td>
+                          <td>Blog Image</td>
                           <td>Actions</td>
                         </tr>
                       </thead>
@@ -39,22 +38,19 @@
 
 
 
-                  
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td><img style="width: 100px;" src=""></td>
+                    @foreach($blogs as $blog)
+                         <tr>
+                          <td>{{$blog->id}}</td>
+                          <td>{{$blog->heading}}</td>
+                          <td>{{$blog->description}}</td>
+                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$blog->image)}}"></td>
                           <td>
-                            <a href=""><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
-                            <a href=""><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                            <a href="{{route('edit-blog',[$blog->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
+                            <a href="{{route('delete-blog',[$blog->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                           </td>
-
                         </tr>
                         @endforeach
-
-                                </tbody>
+                        </tbody>
                     </table>
 
                   </div>

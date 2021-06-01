@@ -76,18 +76,18 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="footer-bottom-sec1">
-                           <img src="assets/images/footer-logo.png">
+                           <img src="{{asset('assets/images/footer-logo.png')}}">
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="footer-bottom-sec2 text-right">
                            <div class="social-link">
                               <ul class="list-inline">
-                                 <li class="list-inline-item"><a href="#"><img src="assets/images/facebook-icon.png"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="assets/images/twitter-icon.png"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="assets/images/youtube-icon.png"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="assets/images/google-icon.png"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="assets/images/linkedin-icon.png"></a></li>
+                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/facebook-icon.png')}}"></a></li>
+                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/twitter-icon.png')}}"></a></li>
+                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/youtube-icon.png')}}"></a></li>
+                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/google-icon.png')}}"></a></li>
+                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/linkedin-icon.png')}}"></a></li>
                               </ul>
                            </div>
                            <div class="copy-right">
@@ -103,12 +103,12 @@
          </div>
       </footer>
       <!-- end-footer -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/owl.carousel.min.js"></script>
-      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+      <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+      <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-      <script src="assets/js/aos.min.js"></script>
-      <script src="assets/js/custom.js"></script>
+      <script src="{{asset('assets/js/aos.min.js')}}"></script>
+      <script src="{{asset('assets/js/custom.js')}}"></script>
       <script>
          AOS.init();
       </script>

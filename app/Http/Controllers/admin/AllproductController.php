@@ -9,7 +9,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 
 class AllproductController extends Controller
@@ -24,11 +24,10 @@ class AllproductController extends Controller
     public function  addproduct()
 {   
     $category=Category::all();
-  
     return view('admin.allproduct.addproduct')->with('category',$category);
 }
    
-public function  editproduct($id){
+   public function  editproduct($id){
     
     $view['view']=Products::find($id);
     $category['category']=Category::all();
@@ -41,10 +40,9 @@ public function  submitproduct(Request $request)
 
     // dd($request->all());
    
- $Product= request()->validate([
+        $Product= request()->validate([
 
         'name'=> 'required',
-        'img'=> 'required',
         'orignal_price'=> 'required',
         'discounted_price'=> 'required',
         'new_product'=> 'required',
@@ -53,7 +51,7 @@ public function  submitproduct(Request $request)
 
     ]);
    
-
+    // dd($request->all());
      $Product = [
 
 
@@ -64,16 +62,16 @@ public function  submitproduct(Request $request)
         'discounted_price'=>$request->discounted_price,
         'new_store_product'=>$request->new_product,
         'best_seller'=>$request->seller_product,
-        'new_store_product'=>$request->featured_product,
+        'featured_product'=>$request->featured_product,
         
 
 
     ];
     // dd($Product);
     
-    if($request->hasFile('img')){
-        $path = $request->file('img');
-        $path = $request->img->store('public/media');
+    if($request->hasFile('image')){
+        $path = $request->file('image');
+        $path = $request->image->store('public/media');
         $path = basename($path);
         $Product['img'] = $path;
         }
@@ -106,7 +104,7 @@ public function  submitproduct(Request $request)
         $path = $request->file('img');
         $path = $request->img->store('public/media');
         $path = basename($path);
-       $Product->img = $path;
+        $Product->img = $path;
         }
 
 
@@ -120,4 +118,4 @@ $Product->save();
     $delete=Products::find($id)->delete();
     return  redirect()->route('view-product',$delete)->withSuccess('Great! Record Has been Delete successfully ');
     }
-}
+}        

@@ -27,7 +27,7 @@
                      <div class="top-header-sec1">
                         <!--   <div class="top-header-content1"> -->
                         <a href="#">free shipping</a>
-                        <img src="assets/images/top-header-img-1.png" class="img-fluid" alt="header-img">
+                        <img src="{{asset('assets/images/top-header-img-1.png')}}" class="img-fluid" alt="header-img">
                         <!-- </div> -->
                      </div>
                   </div>
@@ -37,7 +37,7 @@
 
                            <li class="list-inline-item">
                               @guest
-                              <a href="{{route('login')}}"><img src="assets/images/top-header-img-2.png"> &nbsp; log in</a> / <a href="{{ route('register') }}">sign up</a>
+                              <a href="{{route('login')}}"><img src="{{asset('assets/images/top-header-img-2.png')}}"> &nbsp; log in</a> / <a href="{{ route('register') }}">sign up</a>
                               @else
                               {{ Auth::user()->name }}
                               
@@ -51,11 +51,11 @@
                           </form>
                               @endguest
                            </li>
-                           <li class="list-inline-item"><a href="{{route('user-account')}}"><img src="assets/images/top-header-img-3.png"> &nbsp;my account</a></li>
-                           <li class="list-inline-item"><a href="{{route('about.us')}}"><img src="assets/images/top-header-img-4.png"> &nbsp; about us</a></li>
-                           <li class="list-inline-item"><a href="#"><img src="assets/images/top-header-img-5.png"> &nbsp; blog</a></li>
-                           <li class="list-inline-item"><a href="{{route('video')}}"><img src="assets/images/top-header-img-6.png"> &nbsp; videos</a></li>
-                           <li class="list-inline-item dropdown-tn"><a href="#" class="dropdown-tn" data-toggle="dropdown"><img src="assets/images/top-header-img-7.png"> &nbsp; compare <span>0</span></a>
+                           <li class="list-inline-item"><a href="{{route('user-account')}}"><img src="{{asset('assets/images/top-header-img-3.png')}}"> &nbsp;my account</a></li>
+                           <li class="list-inline-item"><a href="{{route('about.us')}}"><img src="{{asset('assets/images/top-header-img-4.png')}}"> &nbsp; about us</a></li>
+                           <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/top-header-img-5.png')}}"> &nbsp; blog</a></li>
+                           <li class="list-inline-item"><a href="{{route('video')}}"><img src="{{asset('assets/images/top-header-img-6.png')}}"> &nbsp; videos</a></li>
+                           <li class="list-inline-item dropdown-tn"><a href="#" class="dropdown-tn" data-toggle="dropdown"><img src="{{asset('assets/images/top-header-img-7.png')}}"> &nbsp; compare <span>0</span></a>
                                 <div class="dropdown-content-tn">
                                           <h6>FIRST RESPONDER RESISTANCE TUBING</h6>
                                           <p>REMOVE THIS ITEM</p>
@@ -68,7 +68,7 @@
                                        </div>        
                                        </div>
                                    </li>
-                           <li class="list-inline-item"><a href="{{route('order-status')}}"><img src="assets/images/top-header-img-8.png"> &nbsp; order status</a></li>
+                           <li class="list-inline-item"><a href="{{route('order-status')}}"><img src="{{asset('assets/images/top-header-img-8.png')}}"> &nbsp; order status</a></li>
                            <li class="list-inline-item"><i class="fa fa-heart heart" aria-hidden="true"></i><a href="{{route('wish-list')}}"> &nbsp; wishlist</a></li>
                         </ul> 
                      </div>
@@ -87,14 +87,15 @@
                <div class="col-md-12">
                   <div class="navigation-list text-center">
                      <ul class="list-inline">
+                        
                         <li class="list-inline-item"><a href="{{route('all-product')}}" data-aos="zoom-in-up" data-aos-duration="1200">all products</a></li>
-                        <li class="list-inline-item"><a href="{{route('armcare')}}" data-aos="zoom-in-up" data-aos-duration="1200">arm care</a></li>
-                        <li class="list-inline-item"><a href="{{route('condition.recovery')}}" data-aos="zoom-in-up" data-aos-duration="1200">condition & recover</a></li>
-                        <li class="list-inline-item"><a href="{{route('mobility')}}" data-aos="zoom-in-up" data-aos-duration="1200">mobility & flexibility</a></li>
-                        <li class="list-inline-item"><a href="{{route('strength')}}" data-aos="zoom-in-up" data-aos-duration="1200">strength & stability</a></li>
-                        <li class="list-inline-item"><a href="{{route('velocity')}}" data-aos="zoom-in-up" data-aos-duration="1200">velocity enhancement</a></li>
-                        <li class="list-inline-item"><a href="{{route('walkup')}}" data-aos="zoom-in-up" data-aos-duration="1200">wake-up warm-up</a>
-                        </li>
+                        @foreach($Categorys as $Category)
+ 
+
+                <li class="list-inline-item"><a href="{{route('productcategory',[$Category->id])}}" data-aos="zoom-in-up" data-aos-duration="1200">{{$Category->category_name}}</a></li>
+                @endforeach
+              
+                        
                      </ul>
                   </div>
                </div>
@@ -107,7 +108,7 @@
          <div class="circle" id="navbar"><i class="fa fa-bars" aria-hidden="true"></i></div>
          <div class="nveMenu text-left">
             <div>
-               <img src="assets/images/logo.png" class="img-fluid img-1">
+               <img src="{{asset('assets/images/logo.png')}}" class="img-fluid img-1">
             </div>
             <ul class="navlinks p-0 mt-4">
                         <li><a href="all-products.php">all products</a></li>
@@ -130,8 +131,8 @@
                <div class="row h-100 align-items-center align-content-center">
                   <div class="col-md-7 col-6">
                      <div class="logo-sec">
-                        <a href="index.php"><img src="assets/images/logo.png" class="img-fluid img-1"></a>
-                       <a href="index.php"><img src="assets/images/footer-logo.png" class="img-fluid img-2"></a>
+                        <a href="index.php"><img src="{{asset('assets/images/logo.png')}}" class="img-fluid img-1"></a>
+                       <a href="index.php"><img src="{{asset('assets/images/footer-logo.png')}}" class="img-fluid img-2"></a>
                      </div>
                   </div>
                   <div class="col-md-5 col-6">

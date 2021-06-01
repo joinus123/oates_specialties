@@ -91,11 +91,11 @@ class BestsellerController extends Controller
             }
     
     
-    $Bestseller->save();
-     return redirect()->route('view-bestsellerlist',$request->id)->withSuccess('Great! Record Has been update successfully');
+            $Bestseller->save();
+            return redirect()->route('view-bestsellerlist',$request->id)->withSuccess('Great! Record Has been update successfully');
     }
         
-     public function deletebrandlogo(request $request , $id)
+            public function deletebrandlogo(request $request , $id)
         {
            
         $delete=Bestseller::find($id)->delete();
