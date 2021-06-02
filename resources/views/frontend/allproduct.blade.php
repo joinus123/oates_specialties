@@ -2,6 +2,7 @@
   <!-- end-logo-search -->
   <section class="all-product">
     <div class="banner">
+       
      
  <div class="col-md-12">
  <div class="sub-page-heading">
@@ -49,7 +50,27 @@
           <ul class="social">
              <!-- <li><a href="product-detail.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
              <!-- <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li> -->
-             <li><a href="cart.php" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+           
+             <form action="{{ route('cart.store') }}" id="myForm" method="POST">
+               {{ csrf_field() }}
+               <input type="hidden" value="{{$view->id}}" id="id" name="id">
+               <input type="hidden" value="{{$view->name}}" id="name" name="name">
+               <input type="hidden" value="{{$view->price}}" id="price" name="price">
+               <input type="hidden" value="{{$view->img}}" id="img" name="img">
+               <input type="hidden" value="1" id="quantity" name="quantity">
+               <div class="card-footer" style="background-color: rgb(255, 255, 255);">
+                     <div class="row">
+                       
+                        <li><a onclick="mySubmit();" id="myForm" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                      
+                   </div>
+               </div>
+           </form>
+           <script type="text/javascript">
+            function mySubmit(){
+            document.getElementById("myForm").submit();
+         }
+      </script>
           </ul>
           <!-- <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a> -->
        </div>

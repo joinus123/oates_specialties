@@ -55,17 +55,17 @@ class AppController extends Controller
 
     public function account()
     {
-    //    dd("ggggggggggg");
-         $Categorys=Category::all();
+ 
+        $Categorys=Category::all();
         return view('frontend.myaccount')->with('Categorys',$Categorys);
     }
-    public function aboutus()
+       public function aboutus()
     {
-    //    dd("ggggggggggg");
+
         $Categorys=Category::all();
         return view('frontend.about_us')->with('Categorys',$Categorys);
     }
-    public function video()
+       public function video()
     {
        $Categorys=Category::all();
         return view('frontend.video')->with('Categorys',$Categorys);
@@ -80,14 +80,23 @@ class AppController extends Controller
        $Categorys=Category::all();
         return view('frontend.wishlist')->with('Categorys',$Categorys);
     }
+
+    public function addcart()
+    {
+       $Categorys=Category::all();
+        return view('frontend.addcart')->with('Categorys',$Categorys);
+    }
+      public function checkout()
+    {
+       $Categorys=Category::all();
+        return view('frontend.checkout')->with('Categorys',$Categorys);
+    }
     public function allproduct()
     {
-    //    dd("ggggggggggg");
+    
        $Categorys=Category::all();
        $product=Products::all();
-    // $new_store_product=Products::where('new_store_product',1)->get();
-       //dd($new_store_product->toArray());
-        return view('frontend.allproduct')->with([ 'Categorys'=>$Categorys,'product'=>$product]);
+       return view('frontend.allproduct')->with([ 'Categorys'=>$Categorys,'product'=>$product]);
     }
   
 }

@@ -72,6 +72,13 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/updatesocialmedialink/{id}', 'SocialmedialinkController@updatesocialmedialink')->name('update-socialmedialink');
      Route::post('/submitsocialmedialink', 'SocialmedialinkController@submitsocialmedialink')->name('submit-socialmedialink');
      Route::get('/deletesocialmedialink/{id}', 'SocialmedialinkController@deletesocialmedialink')->name('delete-socialmedialink');
+     
+     
+    
+     Route::get('/view/sitesetting', 'SitesettingController@viewsitesetting')->name('view-sitesetting');
+     Route::post('/add/sitesetting', 'SitesettingController@addsitesetting')->name('add-sitesetting');
+    
+
 });
 
 });
@@ -92,6 +99,16 @@ Route::namespace('App\Http\Controllers\frontend')->group(function() {
     Route::get('cart','AppController@addcart')->name('add-cart');
     Route::get('checkout','AppController@checkout')->name('checkout');
     Route::get('productcategory/{id}', 'AppController@productcategory')->name('productcategory');
+
+
+    //Add to Cart
+    
+    Route::get('/cart', 'CartController@cart')->name('cart.index');
+    Route::post('/add', 'CartController@add')->name('cart.store');
+    Route::post('/update', 'CartController@update')->name('cart.update');
+    Route::post('/remove', 'CartController@remove')->name('cart.remove');
+    Route::post('/clear', 'CartController@clear')->name('cart.clear');
+    
 });
 Auth::routes();
 

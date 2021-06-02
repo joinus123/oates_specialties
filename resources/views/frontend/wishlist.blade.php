@@ -28,42 +28,31 @@
 <th scope="col">Product</th>
 <th scope="col">Quantity</th>
 <th scope="col">Price</th>
-<th scope="col">Cart</th>  
+<th scope="col">Total</th>  
 <th scope="col">Remove</th>
 
 
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><img src="assets/images/seller-img2.png" class="img-fluid"></td>
-<td>TAP™ ADVANCED COMMAND TRAINER</td>
-<td>3</td>
-<td>2</td>
-<td><a href="{{route('add-cart')}}"><i class="fa fa-shopping-cart"></i></a></td>
-<td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+   @if(count(\Cart::getContent()) > 0)
+    @foreach(\Cart::getContent() as $item)
+    <tr>
+      <td><img src="assets/images/seller-img2.png" class="img-fluid"></td>
+      <td>{{$item->name}}</td>
+      <td>{{$item->quantity}}</td>
+      <td>{{$item->price}}</td>
+      <td><a href="">{{ \Cart::get($item->id)->getPriceSum() }}</i></a></td>
+      <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+      
+      
+      </tr>
+    @endforeach
+    @else
+    <li class="list-group-item">Your Cart is Empty</li>
+   @endif
 
-
-</tr>
-<tr>
-<td><img src="assets/images/seller-img2.png" class="img-fluid"></td>
-<td>TAP™ ADVANCED COMMAND TRAINER</td>
-<td>3</td>
-<td>2</td>
-<td><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></td>
-<td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-
-
-</tr>    <tr>
-<td><img src="assets/images/seller-img2.png" class="img-fluid"></td>
-<td>TAP™ ADVANCED COMMAND TRAINER</td>
-<td>3</td>
-<td>2</td>
-<td><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></td>
-<td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-
-
-</tr>
+    
 </tbody>
 </table> 
 </div>

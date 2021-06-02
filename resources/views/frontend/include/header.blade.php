@@ -69,7 +69,7 @@
                                        </div>
                                    </li>
                            <li class="list-inline-item"><a href="{{route('order-status')}}"><img src="{{asset('assets/images/top-header-img-8.png')}}"> &nbsp; order status</a></li>
-                           <li class="list-inline-item"><i class="fa fa-heart heart" aria-hidden="true"></i><a href="{{route('wish-list')}}"> &nbsp; wishlist</a></li>
+                           <li class="list-inline-item"><i class="fa fa-heart heart" aria-hidden="true"></i><a href="{{route('cart.index')}}"> &nbsp; wishlist</a></li>
                         </ul> 
                      </div>
                      <div class="clearfix"></div>

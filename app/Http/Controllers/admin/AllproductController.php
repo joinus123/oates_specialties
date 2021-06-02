@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Products;
 use App\Models\Category;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -112,10 +113,11 @@ $Product->save();
  return redirect()->route('view-product',$request->id)->withSuccess('Great! Record Has been update successfully');
 }
     
- public function deleteproduct(request $request , $id)
+     public function deleteproduct(request $request , $id)
     {
        
     $delete=Products::find($id)->delete();
     return  redirect()->route('view-product',$delete)->withSuccess('Great! Record Has been Delete successfully ');
     }
+       
 }        
