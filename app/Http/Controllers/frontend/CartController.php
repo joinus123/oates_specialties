@@ -10,20 +10,20 @@ class CartController extends Controller
     
     
     public function add(Request$request){
-       
+    //    dd($request->all());
             \Cart::add(array(
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->price,
             'quantity' => $request->quantity,
             'attributes' => array(
-            'img' => $request->img,
+            'img' => $request->image,
             'slug' => $request->slug
             )
            ));
           
             
-           return redirect()->route('wish-list')->with('success_msg', 'Item is Added to Cart!');
+           return redirect()->route('order-status')->with('success_msg', 'Item is Added to Cart!');
     }
     
     
@@ -34,5 +34,6 @@ class CartController extends Controller
        // dd($cartCollection);
         return view('frontend.wishlist')->with(['cartCollection' => $cartCollection,'product'=>$product,'Categorys'=>$category]);;
     }
-  
+
+   
 }

@@ -76,13 +76,13 @@ use Illuminate\Support\Facades\Auth;
      
     
      Route::get('/view/sitesetting', 'SitesettingController@viewsitesetting')->name('view-sitesetting');
-     Route::post('/add/sitesetting', 'SitesettingController@addsitesetting')->name('add-sitesetting');
+     Route::post('/sitesetting', 'SitesettingController@submitsitesetting')->name('submit-sitesetting');
     
 
 });
 
 });
-Route::namespace('App\Http\Controllers\frontend')->group(function() {
+    Route::namespace('App\Http\Controllers\frontend')->group(function() {
     Route::get('','AppController@homepage')->name('home-page');
     Route::get('account','AppController@account')->name('user-account');
     Route::get('aboutus','AppController@aboutus')->name('about.us');
@@ -90,14 +90,7 @@ Route::namespace('App\Http\Controllers\frontend')->group(function() {
     Route::get('orderstatus','AppController@orderstatus')->name('order-status');
     Route::get('wishlist','AppController@wishlist')->name('wish-list');
     Route::get('allproduct','AppController@allproduct')->name('all-product');
-    Route::get('armcare','AppController@armcare')->name('armcare');
-    Route::get('conditionrecovery','AppController@conditionrecovery')->name('condition.recovery');
-    Route::get('mobility','AppController@mobility')->name('mobility');
-    Route::get('strength','AppController@strength')->name('strength');
-    Route::get('velocity','AppController@velocity')->name('velocity');
-    Route::get('walkup','AppController@walkup')->name('walkup');
     Route::get('cart','AppController@addcart')->name('add-cart');
-    Route::get('checkout','AppController@checkout')->name('checkout');
     Route::get('productcategory/{id}', 'AppController@productcategory')->name('productcategory');
 
 
@@ -106,7 +99,7 @@ Route::namespace('App\Http\Controllers\frontend')->group(function() {
     Route::get('/cart', 'CartController@cart')->name('cart.index');
     Route::post('/add', 'CartController@add')->name('cart.store');
     Route::post('/update', 'CartController@update')->name('cart.update');
-    Route::post('/remove', 'CartController@remove')->name('cart.remove');
+    Route::get('/remove', 'CartController@remove')->name('cart.remove');
     Route::post('/clear', 'CartController@clear')->name('cart.clear');
     
 });

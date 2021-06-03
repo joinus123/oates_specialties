@@ -45,6 +45,7 @@ public function  submitproduct(Request $request)
 
         'name'=> 'required',
         'orignal_price'=> 'required',
+        'price'=> 'required',
         'discounted_price'=> 'required',
         'new_product'=> 'required',
         'seller_product'=> 'required',
@@ -61,6 +62,7 @@ public function  submitproduct(Request $request)
         'category_id'=>$request->category,
         'orignal_price'=>$request->orignal_price,
         'discounted_price'=>$request->discounted_price,
+        'price'=>$request->price,
         'new_store_product'=>$request->new_product,
         'best_seller'=>$request->seller_product,
         'featured_product'=>$request->featured_product,
@@ -74,7 +76,7 @@ public function  submitproduct(Request $request)
         $path = $request->file('image');
         $path = $request->image->store('public/media');
         $path = basename($path);
-        $Product['img'] = $path;
+        $Product['image'] = $path;
         }
 
     
@@ -95,17 +97,18 @@ public function  submitproduct(Request $request)
        $Product->category_id=$request->category;
        $Product->orignal_price= $request->orignal_price;
        $Product->discounted_price= $request->discounted_price;
+       $Product->price= $request->price;
        $Product->best_seller=$request->seller_product;
        $Product->new_store_product=$request->new_product;
        $Product->featured_product=$request->featured_product;
     
 
 
-        if($request->hasFile('img')){
-        $path = $request->file('img');
-        $path = $request->img->store('public/media');
+        if($request->hasFile('image')){
+        $path = $request->file('image');
+        $path = $request->image->store('public/media');
         $path = basename($path);
-        $Product->img = $path;
+        $Product->image = $path;
         }
 
 

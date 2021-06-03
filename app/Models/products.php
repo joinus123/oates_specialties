@@ -13,10 +13,11 @@ class products extends Model
 
         'category_id',
         'name',
-        'img',
+        'image',
         'orignal_price',
         'discounted_price',
-        'slug'	,
+        'price',
+        'slug',
         'created_at',
         'updated_at',
         'new_store_product',

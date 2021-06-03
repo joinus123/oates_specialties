@@ -40,12 +40,12 @@
 
    @foreach($product as $view)
    <div class="col-md-4">
-     
+  
     <div class="product-grid5">
       <div class="product-image5">
           <a href="#">
-          <img class="pic-1" src="{{asset('storage/media/'.$view->img)}}">
-          <img class="pic-2" src="{{asset('storage/media/'.$view->img)}}">
+          <img class="pic-1" src="{{asset('storage/media/'.$view->image)}}">
+          <img class="pic-2" src="{{asset('storage/media/'.$view->image)}}">
           </a>
           <ul class="social">
              <!-- <li><a href="product-detail.html" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
@@ -56,27 +56,33 @@
                <input type="hidden" value="{{$view->id}}" id="id" name="id">
                <input type="hidden" value="{{$view->name}}" id="name" name="name">
                <input type="hidden" value="{{$view->price}}" id="price" name="price">
-               <input type="hidden" value="{{$view->img}}" id="img" name="img">
+               <input type="hidden" value="{{$view->image}}" id="image" name="image">
                <input type="hidden" value="1" id="quantity" name="quantity">
                <div class="card-footer" style="background-color: rgb(255, 255, 255);">
                      <div class="row">
-                       
-                        <li><a onclick="mySubmit();" id="myForm" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        
+                        <li>
+                           <button type="submit" class="add_to_cart_btn"  title="add to cart" data-tip="Add to Cart">
+                              <i class="fa fa-shopping-cart"></i> </button>
+                           {{-- <a onclick="mySubmit();"  id="myForm" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a> --}}
+                        </li>
                       
                    </div>
                </div>
            </form>
-           <script type="text/javascript">
+          
+           {{-- <script type="text/javascript">
             function mySubmit(){
             document.getElementById("myForm").submit();
          }
-      </script>
+      </script> --}}
           </ul>
+         
           <!-- <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a> -->
        </div>
        <div class="product-content">
           <h3 class="title"><a href="product-detail.php">{{$view->name}}</a></h3>
-          <div class="price">{{$view->orignal_price}}-{{$view->discounted_price}}</div>
+          <div class="price">${{$view->price}}-${{$view->discounted_price}}</div>
        </div>
     </div>
    

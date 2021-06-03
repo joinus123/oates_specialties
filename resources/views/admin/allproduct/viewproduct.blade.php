@@ -32,6 +32,7 @@
                           <td>product Name</td>
                           <td>product Orignal Price</td>
                           <td>product Discount Price</td>
+                          <td>product  Price</td>
                           <td>Product Image</td>
                           <td>Actions</td>
                         </tr>
@@ -46,8 +47,9 @@
                           <td>{{$view->name}}</td>
                           <td>{{$view->orignal_price}}</td>
                           <td>{{$view->discounted_price}}</td>
+                          <td>{{$view->price}}</td>
                        
-                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->img)}}"></td>
+                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->image)}}"></td>
                           <td>
                             <a href="{{route('edit-product',[$view->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
                             <a href="{{route('delete-product',[$view->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>

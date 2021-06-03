@@ -84,7 +84,7 @@
                 <div class="store-item">
               
                <div class="store-img">
-                  <img src="{{asset('storage/media/'.$new_store_product['img'])}}">
+                  <img src="{{asset('storage/media/'.$new_store_product['image'])}}">
                 </div>
                         <div class="store-content m-3">
                            <h5>{{$new_store_product['name']}}</h5>
@@ -131,7 +131,7 @@
                   <div class="item">
                      <div class="sell-item">
                         <div class="sell-img">
-                           <img src="{{asset('storage/media/'.$best_seller['img'])}}">
+                           <img src="{{asset('storage/media/'.$best_seller['image'])}}">
                         </div>
                         <div class="sell-content p-3">
                            <h5>{{$best_seller['name']}}</h5>
@@ -162,7 +162,7 @@
                   <div class="item">
                      <div class="product-item">
                         <div class="product-img">
-                           <img src="{{asset('storage/media/'.$featured_product['img'])}}">
+                           <img src="{{asset('storage/media/'.$featured_product['image'])}}">
                         </div>
                         <div class="product-content m-3">
                            <h5>{{$featured_product['name']}}</h5>

@@ -40,6 +40,12 @@
                 <input type="name" class="form-control" id="discounted_price"   value="{{ $view->discounted_price}}"  name="discounted_price" >
                 <span class="text-danger">{{ $errors->first('discounted_price') }}</span>
               </div>
+
+              <div class="form-group">
+                <label> Product <span class="dls"> price</span> </label>
+                <input type="name" class="form-control" id="price"  value="{{ $view->price}}"  name="price" >
+                <span class="text-danger">{{ $errors->first('price') }}</span>
+              </div>
   
 
 
@@ -49,9 +55,9 @@
                     <div class="d-flex justify-content-between base-{{asset('admin/assets')}}/images-sec">
                         <label>Banner_slider_Image</label>
                     </div>
-                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#bannerslider_image').click()"
-                        src="{{asset('storage/media/'.$view->img)}}" alt="">
-                    <input type="file" onchange="getFile(this)" name="img"  class="hidden"  id="bannerslider_image">
+                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#image').click()"
+                        src="{{asset('storage/media/'.$view->image)}}" alt="">
+                    <input type="file" onchange="getFile(this)" name="image"  class="hidden"  id="image">
                     <span class="text-danger">{{ $errors->first('bannerslider_image') }}</span>
                 </div>
                 </div>

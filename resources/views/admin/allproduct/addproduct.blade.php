@@ -40,6 +40,11 @@
                 <span class="text-danger">{{ $errors->first('discounted_price') }}</span>
               </div>
   
+              <div class="form-group">
+                <label> Product <span class="dls"> price</span> </label>
+                <input type="name" class="form-control" id="price" name="price" >
+                <span class="text-danger">{{ $errors->first('price') }}</span>
+              </div>
 
 
 
