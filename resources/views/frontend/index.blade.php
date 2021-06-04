@@ -88,10 +88,10 @@
                 </div>
                         <div class="store-content m-3">
                            <h5>{{$new_store_product['name']}}</h5>
-                           <p>Maecenas quis imperdiet neque. Sed maximus varius mi nec ornare</p>
+                           <p>{{$new_store_product['product_description']}}</p>
                            <div class="price-btn d-flex">
                            <a href="cart.php" class="custom-btn">add to cart </a>
-                           <span>{{$new_store_product['discounted_price']}}</span>
+                           <span>${{$new_store_product['price']}}</span>
                            </div>
                         </div>
                       
@@ -135,9 +135,9 @@
                         </div>
                         <div class="sell-content p-3">
                            <h5>{{$best_seller['name']}}</h5>
-                           <p>Maecenas quis imperdiet neque. Sed maximus varius mi nec ornare</p>
+                           <p>{{$best_seller['product_description']}}</p>
                            <a href="cart.php" class="custom-btn cl-white border-black">add to cart </a>
-                           <span>{{$best_seller['discounted_price']}}</span>
+                           <span>${{$best_seller['price']}}</span>
                         </div>
                      </div>
                   </div>
@@ -166,9 +166,9 @@
                         </div>
                         <div class="product-content m-3">
                            <h5>{{$featured_product['name']}}</h5>
-                           <p>Maecenas quis imperdiet neque. Sed maximus varius mi nec ornare</p>
+                           <p>{{$featured_product['product_description']}}</p>
                            <a href="cart.php" class="custom-btn">add to cart </a>
-                           <span>{{$featured_product['orignal_price']}}</span>
+                           <span>${{$featured_product['price']}}</span>
                         </div>
                      </div>
                      </div>

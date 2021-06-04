@@ -131,8 +131,8 @@
                <div class="row h-100 align-items-center align-content-center">
                   <div class="col-md-7 col-6">
                      <div class="logo-sec">
-                        <a href="index.php"><img src="{{asset('assets/images/logo.png')}}" class="img-fluid img-1"></a>
-                       <a href="index.php"><img src="{{asset('assets/images/footer-logo.png')}}" class="img-fluid img-2"></a>
+                        <a href="index.php"><img src="{{asset('storage/media/'.$Sitesettings[0]->header_logo)}}" class="img-fluid img-1"></a>
+                       <a href="index.php"><img src="{{asset('storage/media/'.$Sitesettings[0]->header_logo)}}" class="img-fluid img-2"></a>
                      </div>
                   </div>
                   <div class="col-md-5 col-6">

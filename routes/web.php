@@ -73,7 +73,27 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/submitsocialmedialink', 'SocialmedialinkController@submitsocialmedialink')->name('submit-socialmedialink');
      Route::get('/deletesocialmedialink/{id}', 'SocialmedialinkController@deletesocialmedialink')->name('delete-socialmedialink');
      
-     
+     Route::get('/view', 'SliderimageController@viewsliderimage')->name('view-slider');
+     Route::get('/add', 'SliderimageController@addsliderimage')->name('add-slider');
+     Route::get('/edit/{id}', 'SliderimageController@editsliderimage')->name('edit-slider');
+     Route::post('/update/{id}', 'SliderimageController@updatesliderimage')->name('update-slider');
+     Route::post('/submit', 'SliderimageController@submitsliderimage')->name('submit-slider');
+     Route::get('/delete/{id}', 'SliderimageController@deletesliderimage')->name('delete-slider');
+
+     Route::get('/aboutus/view', 'AboutusController@viewaboutus')->name('view-aboutus');
+     Route::get('/aboutus/add', 'AboutusController@addaboutus')->name('add-aboutus');
+     Route::get('/aboutus/edit/{id}', 'AboutusController@editaboutus')->name('edit-aboutus');
+     Route::post('/aboutus/update/{id}', 'AboutusController@updateaboutus')->name('update-aboutus');
+     Route::post('/aboutus/submit', 'AboutusController@submitaboutus')->name('submit-aboutus');
+     Route::get('/aboutus/delete/{id}', 'AboutusController@deleteaboutus')->name('delete-aboutus');
+
+
+     Route::get('/contact/view', 'ContactController@viewcontact')->name('view-contact');
+     Route::get('/contact/add', 'ContactController@addcontact')->name('add-contact');
+     Route::get('/contact/edit/{id}', 'ContactController@editcontact')->name('edit-contact');
+     Route::post('/contact/update/{id}', 'ContactController@updatecontact')->name('update-contact');
+     Route::post('/contact/submit', 'ContactController@submitcontact')->name('submit-contact');
+     Route::get('/contact/delete/{id}', 'ContactController@deletecontact')->name('delete-contact');
     
      Route::get('/view/sitesetting', 'SitesettingController@viewsitesetting')->name('view-sitesetting');
      Route::post('/sitesetting', 'SitesettingController@submitsitesetting')->name('submit-sitesetting');

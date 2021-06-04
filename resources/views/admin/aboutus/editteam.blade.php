@@ -1,68 +1,45 @@
 @extends('admin.master')
-
-
 @section('content')
-    <div class="content">
-        <div class="container-fluid">
-            <div class="content">
-                <div class="container-fluid">
-                  <div>
-                    <h1 style="display:inline-block;">
-                      Banner Slider
-                     </h1>
-                     @if ($message = Session::get('success'))
-                     <div class="alert alert-success alert-block">
-                      <button type="button" class="close" data-dismiss="alert">×</button>
-                      <strong>{{ $message }}</strong>
-                     </div>
-                      <br>
-                     @endif
-                    <h3 class="box-title" style="display:inline-block;">List</h3>
-                  </div>
-                  <a class="btn btn-info" href="{{route('addbanner-slider')}}">Add New</a>
-                  <hr style="border-top: 1px solid #504444;">
-                  <div class="col-md-12">
-                    <div class="box-body">
-
-                     <table id="table_id" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <td>S.no</td>
-                          <td>Heading One</td>
-                          <td>Heading Two</td>
-                          <td>Heading Three</td>
-                          <td>Banner Image</td>
-                          <td>Actions</td>
-                        </tr>
-                      </thead>
-                      <tbody>
+<div class="content">
+    <div class="container-fluid">
+      <div>
+        <h1 style="display:inline-block;">
+           About Us  Team   </h1>
+        <h3 class="box-title" style="display:inline-block;">Add</h3>
+      </div>
+      <div class="col-md-6">
+        <form role="form" action="{{route('update-aboutus',[$editteams[0]->id])}}" method="post" enctype="multipart/form-data">
+            @csrf
+          <div class="box-body">
+              <div class="form-group">
+                <label>Name <span class="dls"> Team Member</span> </label>
+                <input type="name" class="form-control" id="name" value ="{{ $editteams[0]->name}}" name="name" >
+                <span class="text-danger">{{ $errors->first('name') }}</span>
+              </div>
+  
 
 
 
-                    @foreach ($bannerslider as $view)
-                        <tr>
-                          <td>{{$view->id}}</td>
-                          <td>{{$view->heading_one}}</td>
-                          <td>{{$view->heading_two}}</td>
-                          <td>{{$view->heading_three}}</td>
-                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->bannerslider_image)}}"></td>
-                          <td>
-                            <a href="{{route('editbanner-slider',[$view->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
-                            <a href="{{route('delete-slider',[$view->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
-                          </td>
-
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
-
-                  </div>
-                  <div class="box-footer">
-                    <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
-                  </div>
+            <div class="row base-img-sec">
+                <div class="col-xl-4 col-lg-6">
+                    <div class="d-flex justify-content-between base-{{asset('admin/assets')}}/images-sec">
+                        <label>Team Member Image</label>
+                    </div>
+                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#image').click()"
+                        src="{{asset('storage/media/'.$editteams[0]->image)}}" alt="">
+                    <input type="file" onchange="getFile(this)" name="image"  class="hidden"  id="image">
+                    <span class="text-danger">{{ $errors->first('image') }}</span>
                 </div>
-              </div>
-              </div>
+                </div>
+
         </div>
-	</div>
+        <div class="box-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
+          <a href="" class="btn btn-info">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
 @endsection

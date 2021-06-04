@@ -5,6 +5,7 @@ use  App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Category;
+use App\Models\Sitesetting;
 class CartController extends Controller
 {
     
@@ -30,9 +31,10 @@ class CartController extends Controller
         public function cart()  {
             $category =Category::all();
             $product=Products::all();
+            $Sitesettings=Sitesetting::all();
         $cartCollection = \Cart::getContent();
        // dd($cartCollection);
-        return view('frontend.wishlist')->with(['cartCollection' => $cartCollection,'product'=>$product,'Categorys'=>$category]);;
+        return view('frontend.wishlist')->with(['cartCollection' => $cartCollection,'product'=>$product,'Categorys'=>$category,'Sitesettings'=>$Sitesettings]);;
     }
 
    

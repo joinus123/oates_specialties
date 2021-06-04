@@ -8,7 +8,7 @@
                 <div class="container-fluid">
                   <div>
                     <h1 style="display:inline-block;">
-                      Brand Logo
+                     Slider Image
                      </h1>
                      @if ($message = Session::get('success'))
                      <div class="alert alert-success alert-block">
@@ -19,42 +19,35 @@
                      @endif
                     <h3 class="box-title" style="display:inline-block;">List</h3>
                   </div>
-                  <a class="btn btn-info" href="">Add New</a>
+                  <a class="btn btn-info" href="{{route('add-slider')}}">Add New</a>
                   <hr style="border-top: 1px solid #504444;">
                   <div class="col-md-12">
                     <div class="box-body">
-
+                   
                      <table id="table_id" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <td>S.no</td>
-                          <td>heading_one</td>
-                          <td>heading_two</td>
-                          <td>heading_three</td>
-                          <td>Banner_image</td>
+                          <td>Slider description</td>
+                          <td>Slider Image</td>
                           <td>Actions</td>
                         </tr>
                       </thead>
                       <tbody>
-
-
-
-                  
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td><img style="width: 100px;" src=""></td>
+                        @foreach($sliderimages as $image)
+                          
+                       <tr>
+                          <td>{{$image->id}}</td>
+                          <td>{!!$image->slider_description!!}</td>
+                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$image->slider_image)}}"></td>
                           <td>
-                            <a href=""><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
-                            <a href=""><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                            <a href="{{route('edit-slider',[$image->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
+                            <a href="{{route('delete-slider',[$image->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                           </td>
 
                         </tr>
                         @endforeach
-
-                                </tbody>
+                    </tbody>
                     </table>
 
                   </div>

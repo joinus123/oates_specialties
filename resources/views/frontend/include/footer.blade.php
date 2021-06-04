@@ -76,9 +76,10 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="footer-bottom-sec1">
-                           <img src="{{asset('assets/images/footer-logo.png')}}">
+                           <img src="{{asset('storage/media/'.$Sitesettings[0]->footer_logo)}}">
                         </div>
                      </div>
+                     {{-- @dd($Sitesettings)l; --}}
                      <div class="col-md-6">
                         <div class="footer-bottom-sec2 text-right">
                            <div class="social-link">
@@ -91,7 +92,7 @@
                               </ul>
                            </div>
                            <div class="copy-right">
-                              <p>Copyright © 2019  OATES SPECIALTIES LLC. All rights reserved.</p>
+                              <p>{{$Sitesettings[0]->copy_righttext}}</p>
                            </div>
                         </div>
                      </div>

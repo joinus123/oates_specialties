@@ -30,7 +30,7 @@
                         <tr>
                           <td>S.no</td>
                           <td>product Name</td>
-                          <td>product Orignal Price</td>
+                          <td>Product Description</td>
                           <td>product Discount Price</td>
                           <td>product  Price</td>
                           <td>Product Image</td>
@@ -45,7 +45,7 @@
                         <tr>
                           <td>{{$view->id}}</td>
                           <td>{{$view->name}}</td>
-                          <td>{{$view->orignal_price}}</td>
+                          <td>{{$view->product_description}}</td>
                           <td>{{$view->discounted_price}}</td>
                           <td>{{$view->price}}</td>
                        

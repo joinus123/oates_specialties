@@ -44,6 +44,7 @@ public function  submitproduct(Request $request)
         $Product= request()->validate([
 
         'name'=> 'required',
+        'product_description'=>'required',
         'orignal_price'=> 'required',
         'price'=> 'required',
         'discounted_price'=> 'required',
@@ -59,6 +60,7 @@ public function  submitproduct(Request $request)
 
 
         'name'=>$request->name,
+        'product_description'=>$request->product_description,
         'category_id'=>$request->category,
         'orignal_price'=>$request->orignal_price,
         'discounted_price'=>$request->discounted_price,
@@ -93,6 +95,7 @@ public function  submitproduct(Request $request)
 
        $Product=Products::find($request->id);
 
+       $Product->product_description= $request->product_description;
        $Product->name= $request->name;
        $Product->category_id=$request->category;
        $Product->orignal_price= $request->orignal_price;

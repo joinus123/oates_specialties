@@ -13,9 +13,15 @@
           <div class="box-body">
 
             <div class="form-group">
-              <label> product<span class="dls">Name</span> </label>
+              <label> Product<span class="dls"> Name</span> </label>
               <input type="text" class="form-control" id="name" name="name" >
               <span class="text-danger">{{ $errors->first('name') }}</span>
+            </div>
+
+            <div class="form-group">
+              <label> Product<span class="dls"> Description</span> </label>
+              <input type="text" class="form-control" id="product_description" name="product_description" >
+              <span class="text-danger">{{ $errors->first('product_description') }}</span>
             </div>
            
             
