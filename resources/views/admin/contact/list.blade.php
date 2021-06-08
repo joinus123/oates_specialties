@@ -41,7 +41,7 @@
                           <td>{{$contact->id}}</td>
                           <td>{{$contact->heading}}</td>
                           <td>{{$contact->text}}</td>
-                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$contact->icon)}}"></td>
+                          <td>{{$contact->icon}}</td>
                           <td>
                             <a href="{{route('edit-contact',[$contact->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
                             <a href="{{route('delete-contact',[$contact->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>

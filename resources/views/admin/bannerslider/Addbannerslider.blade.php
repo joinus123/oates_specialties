@@ -38,10 +38,10 @@
                     <div class="d-flex justify-content-between base-{{asset('admin/assets')}}/images-sec">
                         <label>Banner_slider_Image</label>
                     </div>
-                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#bannerslider_image').click()"
+                    <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#image').click()"
                         src="{{asset('admin/assets/img/Add-Property_06.jpg')}}" alt="">
-                    <input type="file" onchange="getFile(this)" name="bannerslider_image"  class="hidden"  id="bannerslider_image">
-                    <span class="text-danger">{{ $errors->first('bannerslider_image') }}</span>
+                    <input type="file" onchange="getFile(this)" name="image"  class="hidden"  id="image">
+                    <span class="text-danger">{{ $errors->first('image') }}</span>
                 </div>
                 </div>
 

@@ -76,9 +76,9 @@ use Illuminate\Support\Facades\Auth;
      Route::get('/view', 'SliderimageController@viewsliderimage')->name('view-slider');
      Route::get('/add', 'SliderimageController@addsliderimage')->name('add-slider');
      Route::get('/edit/{id}', 'SliderimageController@editsliderimage')->name('edit-slider');
-     Route::post('/update/{id}', 'SliderimageController@updatesliderimage')->name('update-slider');
-     Route::post('/submit', 'SliderimageController@submitsliderimage')->name('submit-slider');
-     Route::get('/delete/{id}', 'SliderimageController@deletesliderimage')->name('delete-slider');
+     Route::post('/update/{id}', 'SliderimageController@updatesliderimage')->name('update-imageslider');
+     Route::post('/submit', 'SliderimageController@submitsliderimage')->name('submit-imageslider');
+     Route::get('/delete/{id}', 'SliderimageController@deletesliderimage')->name('delete-imageslider');
 
      Route::get('/aboutus/view', 'AboutusController@viewaboutus')->name('view-aboutus');
      Route::get('/aboutus/add', 'AboutusController@addaboutus')->name('add-aboutus');
@@ -94,6 +94,13 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/contact/update/{id}', 'ContactController@updatecontact')->name('update-contact');
      Route::post('/contact/submit', 'ContactController@submitcontact')->name('submit-contact');
      Route::get('/contact/delete/{id}', 'ContactController@deletecontact')->name('delete-contact');
+
+     Route::get('/video/view', 'VideoController@viewvideo')->name('view-video');
+     Route::get('/video/add', 'VideoController@addvideo')->name('add-video');
+     Route::get('/video/edit/{id}', 'VideoController@editvideo')->name('edit-video');
+     Route::post('/video/update/{id}', 'VideoController@updatevideo')->name('update-video');
+     Route::post('/video/submit', 'VideoController@submitvideo')->name('submit-video');
+     Route::get('/video/delete/{id}', 'VideoController@deletevideo')->name('delete-video');
     
      Route::get('/view/sitesetting', 'SitesettingController@viewsitesetting')->name('view-sitesetting');
      Route::post('/sitesetting', 'SitesettingController@submitsitesetting')->name('submit-sitesetting');
@@ -110,7 +117,8 @@ use Illuminate\Support\Facades\Auth;
     Route::get('orderstatus','AppController@orderstatus')->name('order-status');
     Route::get('wishlist','AppController@wishlist')->name('wish-list');
     Route::get('allproduct','AppController@allproduct')->name('all-product');
-    Route::get('cart','AppController@addcart')->name('add-cart');
+    Route::get('addcart','AppController@addcart')->name('add-cart');
+    Route::get('chackout','AppController@checkout')->name('checkout');
     Route::get('productcategory/{id}', 'AppController@productcategory')->name('productcategory');
 
 

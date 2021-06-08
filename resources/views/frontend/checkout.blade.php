@@ -36,19 +36,44 @@
 <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
 </div> <br> <!-- fieldsets -->
+@guest
 <fieldset>
     <div class="form-card">
         <div class="row">
-            <div class="col-md-6" style="border-right: 2px dashed #940026;">
+            <div class="col-md-6" style="border-right: 3px dashed #940026;">
                 <h4>Account Information:</h4>
-                <div class="form-group">
-                        <input type="email" name="email" class="form-control checkout-form-1" placeholder="Enter email">
-                                                                </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control checkout-form-1" placeholder="Enter password" id="pwd">
-                    </div>
-                    <a href="login.php" class="checkout-btn mr-2">login</button>
-                    <a href="signup.php" class="checkout-btn">Signup</a>
+                <form method="POST" action="{{ route('login') }}">
+                  @csrf
+                <div class="form-group row">
+                  <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+
+                  <div class="col-md-8">
+                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                      @error('email')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+              </div>
+              <div class="form-group row">
+               <label for="password" class="col-md-3 col-form-label text-md-right">{{ __('Password') }}</label>
+
+               <div class="col-md-8">
+                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                   @error('password')
+                       <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                       </span>
+                   @enderror
+               </div>
+           </div>
+
+         
+                    <button type="submit" class="checkout-btn mr-2">login</button>
+                  
 
             </div>
              <div class="col-md-6">
@@ -60,8 +85,9 @@
         </div> 
 <!--                             <label class="fieldlabels">Email: *</label> <input type="email" name="email" placeholder="Email Id" /> <label class="fieldlabels">Username: *</label> <input type="text" name="uname" placeholder="UserName" /> <label class="fieldlabels">Password: *</label> <input type="password" name="pwd" placeholder="Password" /> <label class="fieldlabels">Confirm Password: *</label> <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
     </div> 
-    <input type="button" name="next" class="next action-button" value="NEXT" />
+    <input type="button" name="next" class="next action-button"  value="NEXT" />
     <!-- <a href="#" class="next checkout-btn float-right">save and continue</a> -->
+@endguest
 </fieldset>
 <fieldset>
     <div class="form-card">
@@ -74,7 +100,7 @@
        <div class="row">
           <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control checkout-form-1" placeholder="First Name" name="customer_fname" data-validation="required name" required="">
+                <input type="text" class="form-control checkout-form-1" placeholder="First Name" value="" name="customer_fname" data-validation="required name" required="">
              </div>
           </div>
           <div class="col-md-6">
@@ -91,9 +117,14 @@
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <input type="email" class="form-control checkout-form-1" placeholder="Email" name="customer_email" data-validation="required email" required="">
+          <input type="email" class="form-control checkout-form-1" placeholder=""   name="customer_email" data-validation="required email" required="">
        </div>
     </div>
+    <div class="col-md-6">
+      <div class="form-group">
+         <input type="password" class="form-control checkout-form-1" placeholder=""  name="curtomer_password" data-validation="required email" required="">
+      </div>
+   </div>
     <div class="col-md-6">
        <div class="row">
           <div class="col-md-6">
@@ -191,6 +222,17 @@
           </select>
        </div>
     </div>
+    <div class="col-md-6">
+      <div class="form-group">
+         <input type="text" class="form-control checkout-form-1" name="shipping_address" placeholder="Shipping Address" data-validation="required" required="">
+      </div>
+   </div>
+   <div class="col-md-6">
+      <div class="form-group">
+         <input type="text" class="form-control checkout-form-1" name="billing_address" placeholder="Billing Address" data-validation="required" required="">
+      </div>
+   </div>
+    
  </div>
         </div><!--  <label class="fieldlabels">First Name: *</label> <input type="text" name="fname" placeholder="First Name" /> <label class="fieldlabels">Last Name: *</label> <input type="text" name="lname" placeholder="Last Name" /> <label class="fieldlabels">Contact No.: *</label> <input type="text" name="phno" placeholder="Contact No." /> <label class="fieldlabels">Alternate Contact No.: *</label> <input type="text" name="phno_2" placeholder="Alternate Contact No." /> -->
     </div> 
@@ -255,6 +297,8 @@
                  <input type="button" name="next" class="next action-button" value="Next" />
      <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
 </fieldset>
+
+
 <fieldset>
     <div class="form-card">
      <div class="row">

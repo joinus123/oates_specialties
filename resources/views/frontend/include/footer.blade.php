@@ -83,13 +83,12 @@
                      <div class="col-md-6">
                         <div class="footer-bottom-sec2 text-right">
                            <div class="social-link">
-                              <ul class="list-inline">
-                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/facebook-icon.png')}}"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/twitter-icon.png')}}"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/youtube-icon.png')}}"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/google-icon.png')}}"></a></li>
-                                 <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/linkedin-icon.png')}}"></a></li>
-                              </ul>
+                            <ul class="list-inline">
+                              @foreach($socialmedialinks as $links)
+                                 <li class="list-inline-item"><a href="#"><img src="{{asset('storage/media/'.$links->socialmedia_image)}}"></a></li>
+                                 @endforeach
+                               </ul>
+                             
                            </div>
                            <div class="copy-right">
                               <p>{{$Sitesettings[0]->copy_righttext}}</p>

@@ -25,7 +25,7 @@ class ContactController extends Controller
        
     }
     public function  submitContact(Request $request){
-
+        // dd($request->all());
         $contact= request()->validate([
 
          'icon'=> 'required',
@@ -33,23 +33,16 @@ class ContactController extends Controller
          'text'=>'required',
     ]);
    
-    // dd($request->all());
-    $contact=[
-
-   'heading'=>$request->heading,
-   'text'=>$request->text,
+    
+         $contact=[
+        'icon'=>$request->icon,
+        'heading'=>$request->heading,
+        'text'=>$request->text,
      
 ];
 
   
-     // dd($Product);
     
-    if($request->hasFile('icon')){
-        $path = $request->file('icon');
-        $path = $request->icon->store('public/media');
-        $path = basename($path);
-       $contact['icon'] = $path;
- }
 
     
      Contact::insert($contact);
@@ -63,17 +56,13 @@ class ContactController extends Controller
 
 
         $contact=Contact::find($request->id);
- 
+        
+        $contact->icon= $request->icon;
         $contact->heading= $request->heading;
         $contact->text= $request->text;
 
  
-         if($request->hasFile('icon')){
-         $path = $request->file('icon');
-         $path = $request->icon->store('public/media');
-         $path = basename($path);
-         $contact->icon = $path;
-         }
+      
  
  
          $contact->save();

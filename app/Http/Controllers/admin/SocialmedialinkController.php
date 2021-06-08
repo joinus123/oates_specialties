@@ -81,11 +81,11 @@ public function  submitsocialmedialink(Request $request)
        $Socialmedialink->socialmedia_name= $request->socialmedia_name;
      
 
-        if($request->hasFile('socialmedialink_image')){
-        $path = $request->file('socialmedialink_image');
-        $path = $request->socialmedialink_image->store('public/media');
+        if($request->hasFile('socialmedia_image')){
+        $path = $request->file('socialmedia_image');
+        $path = $request->socialmedia_image->store('public/media');
         $path = basename($path);
-        $Socialmedialink->socialmedialink_image = $path;
+        $Socialmedialink->socialmedia_image = $path;
         }
 
 

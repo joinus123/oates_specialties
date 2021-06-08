@@ -4,36 +4,37 @@
     <div class="container-fluid">
       <div>
         <h1 style="display:inline-block;">
-           About Us  Team   </h1>
-        <h3 class="box-title" style="display:inline-block;">Add</h3>
+           Contact Us   </h1>
+        <h3 class="box-title" style="display:inline-block;">Edit</h3>
       </div>
       <div class="col-md-6">
-        <form role="form" action="{{route('update-contact',[])}}" method="post" enctype="multipart/form-data">
+        <form role="form" action="{{route('submit-contact')}}" method="post" enctype="multipart/form-data">
             @csrf
-          <div class="box-body">
-
-           
+            <div class="box-body">
 
               <div class="form-group">
-                <label>Socail <span class="dls">Icon</span> </label>
-                <input type="name" class="form-control" id="name" name="name" >
-                <span class="text-danger">{{ $errors->first('name') }}</span>
+                <label>Contactus Icon<span class="dls"> Link</span> </label>
+                <input type="text" class="form-control" id="icon" name="icon" value="{{$editcontacts[0]->icon}}" >
+                <span class="text-danger">{{ $errors->first('icon') }}</span>
               </div>
-
-              <div class="form-group">
-                <label>Social Icon <span class="dls">Heading</span> </label>
-                <input type="name" class="form-control" id="name" name="name" >
-                <span class="text-danger">{{ $errors->first('name') }}</span>
-              </div>
-  
-              <div class="form-group">
-                <label>Social Icom <span class="dls">Text</span> </label>
-                <input type="name" class="form-control" id="name" name="name" >
-                <span class="text-danger">{{ $errors->first('name') }}</span>
-              </div>
-          </div>
+    
+             
+              
+            
+                <div class="form-group">
+                  <label>Contactus  <span class="dls">Heading</span> </label>
+                  <input type="name" class="form-control" id="name" name="heading" value="{{$editcontacts[0]->heading}}" >
+                  <span class="text-danger">{{ $errors->first('heading') }}</span>
+                </div>
+    
+                <div class="form-group">
+                  <label>Contactus <span class="dls">Text</span> </label>
+                  <input type="name" class="form-control" id="name" name="text" value="{{$editcontacts[0]->text}}" >
+                  <span class="text-danger">{{ $errors->first('text') }}</span>
+                </div>
+     </div>
         <div class="box-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Update</button>
           <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
           <a href="" class="btn btn-info">Cancel</a>
         </div>

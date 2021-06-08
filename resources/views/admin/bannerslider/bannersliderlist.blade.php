@@ -45,7 +45,7 @@
                           <td>{{$view->heading_one}}</td>
                           <td>{{$view->heading_two}}</td>
                           <td>{{$view->heading_three}}</td>
-                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->bannerslider_image)}}"></td>
+                          <td><img style="width: 100px;" src="{{asset('storage/media/'.$view->image)}}"></td>
                           <td>
                             <a href="{{route('editbanner-slider',[$view->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
                             <a href="{{route('delete-slider',[$view->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>

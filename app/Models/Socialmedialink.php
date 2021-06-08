@@ -11,7 +11,7 @@ class Socialmedialink extends Model
     protected $table='socialmedialink';
     protected $fillable = [
     'id',
-    'socialmedialink_name',
-	'socialmedialink_image',
+    'socialmedia_name',
+	'socialmedia_image',
     ];
 }

@@ -15,7 +15,7 @@
         <h3 class="box-title" style="display:inline-block;">Add</h3>
       </div>
       <div class="col-md-6">
-        <form role="form" action="{{route('submit-slider')}}" method="post" enctype="multipart/form-data">
+        <form role="form" action="{{route('submit-imageslider')}}" method="post" enctype="multipart/form-data">
             @csrf
           <div class="box-body">
 

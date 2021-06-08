@@ -1,4 +1,5 @@
 @include('frontend.include.header');
+;
 {{-- @dd($new_store_products);  --}}
 {{-- @dd($best_sellers); --}}
 <section class="img-slider">
@@ -7,23 +8,23 @@
          <div class="row">
             <div class="col-md-6 m_0 p_0">
                <div class="img-sec" data-aos="fade-right" data-aos-duration="1500">
-                  <img src="assets/images/banner-img-1.png" class="img-fluid">
+                  <img src="{{asset('storage/media/'.$bannerslider[0]->image)}}" class="img-fluid">
                </div>
             </div>
             <div class="col-md-6 m_0 p_0">
                <div class="content-slider-wrapper" data-aos="fade-left" data-aos-duration="1500">
                   <div class="owl-carousel height" id="slider1">
-                     @foreach ($bannersliders as $bannerslider)
+                     @foreach ($bannerslider as $view)
                        <div class="item">
                         <div class="content-slider text-center">
                            <div class="first-pera">
-                              <p>{{$bannerslider['heading_one']}}</p>
+                              <p>{{$view->heading_one}}</p>
                            </div>
                            <div class="second-pera">
-                              <p>{{$bannerslider['heading_two']}}</p>
+                              <p>{{$view->heading_two}}</p>
                            </div>
                            <div class="last-pera">
-                              <p>{{$bannerslider['heading_three']}}</p>
+                              <p>{{$view->heading_three}}</p>
                            </div>
                         </div>
                      </div>
@@ -237,40 +238,30 @@
      
       <!--END OF TESTIMONIAL 1 -->
       <!--TESTIMONIAL 2 -->
-      <div class="item">
-        <div class="shadow-effect">
-          <img class="img-circle"src="assets/images/aboutus-img3.png" alt="img">
-          <p>Outstanding Stuff! I wanted to thank you for the outstanding customer service and products you have provided the Fastball USA Baseball Academy. Your company is hands down the best place to get equipment for training high level athletes. </p>
-        </div>
-        
-      </div>
+     
       <!--END OF TESTIMONIAL 2 -->
       <!--TESTIMONIAL 3 -->
-      <div class="item">
-        <div class="shadow-effect">
-          <img class="img-circle"src="assets/images/aboutus-img1.png" alt="img">
-          <p>Outstanding Stuff! I wanted to thank you for the outstanding customer service and products you have provided the Fastball USA Baseball Academy. Your company is hands down the best place to get equipment for training high level athletes. </p>
-        </div>
-
-      </div>
+     
       <!--END OF TESTIMONIAL 3 -->
       <!--TESTIMONIAL 4 -->
-      <div class="item">
-        <div class="shadow-effect">
-          <img class="img-circle"src="assets/images/aboutus-img3.png" alt="img">
-          <p>Outstanding Stuff! I wanted to thank you for the outstanding customer service and products you have provided the Fastball USA Baseball Academy. Your company is hands down the best place to get equipment for training high level athletes. </p>
+
+     
+  
+   @foreach($sliderimages as $view)
+  
+   <div class="item">
+      <div class="shadow-effect">
+          <img class="img-circle"src="{{asset('storage/media/'.$view['slider_image'])}}">
+          <p>{!!$view['slider_description']!!}</p>
         </div>
-       
       </div>
+      @endforeach
+    </div>
+  </div>
+</div>
       <!--END OF TESTIMONIAL 4 -->
       <!--TESTIMONIAL 5 -->
-      <div class="item">
-        <div class="shadow-effect">
-          <img class="img-circle"src="assets/images/aboutus-img1.png" alt="img">
-          <p>Outstanding Stuff! I wanted to thank you for the outstanding customer service and products you have provided the Fastball USA Baseball Academy. Your company is hands down the best place to get equipment for training high level athletes. </p>
-        </div>
- 
-      </div>
+    
       <!--END OF TESTIMONIAL 5 -->
     </div>
   </div>

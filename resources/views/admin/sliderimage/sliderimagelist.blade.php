@@ -42,7 +42,7 @@
                           <td><img style="width: 100px;" src="{{asset('storage/media/'.$image->slider_image)}}"></td>
                           <td>
                             <a href="{{route('edit-slider',[$image->id])}}"><span class="edit_icon"><i class="fas fa-pencil-alt"></i></span></a>
-                            <a href="{{route('delete-slider',[$image->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                            <a href="{{route('delete-imageslider',[$image->id])}}"><span class="delete_icon"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                           </td>
 
                         </tr>

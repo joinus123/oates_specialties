@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Sitesetting;
+use App\Models\Socialmedialink;
+
 
 class HomeController extends Controller
 {
@@ -25,7 +28,9 @@ class HomeController extends Controller
     public function index()
     {   
         $Categorys=Category::all();
-        return view('frontend.myaccount')->with('Categorys',$Categorys);
+        $Sitesettings=Sitesetting::all();
+        $socialmedialinks=Socialmedialink::all();
+        return view('frontend.myaccount')->with([ 'socialmedialinks'=>$socialmedialinks,'Categorys'=>$Categorys,'Sitesettings'=>$Sitesettings]);
     
     }
    

@@ -142,7 +142,7 @@
                            <i class="fa fa-search search-btn"></i>
                         </div>
                         <div class="shopping-card mt-2">
-                           <a href="#" class=" custom-btn shopping">Shopping Cart - 0 item</a>
+                           <a href="#" class=" custom-btn shopping">Shopping Cart - {{count(\Cart::getContent())}} item</a>
                         </div>
                      </div>
                   </div>

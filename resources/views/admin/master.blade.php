@@ -36,6 +36,7 @@
             <li class="active"><a href=""><i class="pe-7s-graph"></i><p>Dashboard</p></a></li>
             <li><a href="{{route('userprofile')}}"><i class="pe-7s-user"></i><p>User Profile</p></a></li>
             <li><a href="{{route('view-sitesetting')}}"><i class="pe-7s-config"></i><p>Site Settings</p></a></li>
+            <li><a href="{{route('view-sitesetting')}}"><i class="pe-7s-config"></i><p>Aboutage Settings</p></a></li>
             <!-- li><a href="http://myprojectstaging.com/custom/whocares_dev/admin/events"><i class="pe-7s-news-paper"></i><p>Event News</p></a></li -->
 
             <li class="dropdown">
@@ -57,7 +58,7 @@
                 <li><a href="{{route('view-socialmedialink')}}">Social Media Icon</a></li>
                 <li><a href="{{route('view-slider')}}">Slider Image</a></li>
                 <li><a href="{{route('view-aboutus')}}">About Us Team</a></li>
-                <li><a href="">videos</a></li>
+                <li><a href="{{route('view-video')}}">videos</a></li>
                 <li><a href="">FAQS</a></li>
                 <li><a href="{{route('view-contact')}}">Contact-us</a></li>
                 

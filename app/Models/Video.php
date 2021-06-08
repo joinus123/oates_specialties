@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bannerslider extends Model
+class Video extends Model
 {
     use HasFactory;
-    protected $table='bannerslider';
+    protected $table='videos';
     protected $fillable = [
     'id',
-    'heading_one',
-	'heading_two',
-    'heading_three',
-    'image',
+    'video_title',
+	'video_link',
+    'video_icon',
     ];
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Category;
 use App\Models\Sitesetting;
+use App\Models\Socialmedialink;
 class CartController extends Controller
 {
     
@@ -32,9 +33,10 @@ class CartController extends Controller
             $category =Category::all();
             $product=Products::all();
             $Sitesettings=Sitesetting::all();
+            $socialmedialinks=Socialmedialink::all();
         $cartCollection = \Cart::getContent();
        // dd($cartCollection);
-        return view('frontend.wishlist')->with(['cartCollection' => $cartCollection,'product'=>$product,'Categorys'=>$category,'Sitesettings'=>$Sitesettings]);;
+        return view('frontend.wishlist')->with([ 'socialmedialinks' => $socialmedialinks,'cartCollection' => $cartCollection,'product'=>$product,'Categorys'=>$category,'Sitesettings'=>$Sitesettings]);;
     }
 
    

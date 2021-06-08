@@ -15,7 +15,7 @@
         <h3 class="box-title" style="display:inline-block;">Edit</h3>
       </div>
       <div class="col-md-6">
-        <form role="form" action="{{route('update-slider',[$editslider[0]->id])}}" method="post" enctype="multipart/form-data">
+        <form role="form" action="{{route('update-imageslider',[$editslider->id])}}" method="post" enctype="multipart/form-data">
             @csrf
           <div class="box-body">
 
@@ -26,7 +26,7 @@
             <div class="form-group">
               <label>Image<span style="color:red;"> Description</span> </label>
               <textarea class="editor form-control" rows="3" id="slider_description" name="slider_description" >
-                {{ $editslider[0]->slider_description}}
+                {{ $editslider->slider_description}}
               </textarea>
               <span class="text-danger">{{ $errors->first('slider_description') }}</span>
             </div>
@@ -37,7 +37,7 @@
                         <label>slider_Image</label>
                     </div>
                     <img id="base_image" style="width:50%" class="cursor-pointer base_img img-rounded" onclick="document.querySelector('#slider_image').click()"
-                        src="{{asset('storage/media/'. $editslider[0]->slider_image)}}" alt="">
+                        src="{{asset('storage/media/'. $editslider->slider_image)}}" alt="">
                     <input type="file" onchange="getFile(this)" name="slider_image"  class="hidden"  id="slider_image">
                     <span class="text-danger">{{ $errors->first('slider_image') }}</span>
                 </div>

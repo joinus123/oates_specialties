@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Validator;
 class BannerController extends Controller
 {
     public function  viewbannerslider(){
-    $bannerslider=Bannerslider::all();
-    return view('admin.bannerslider.bannersliderlist')->with('bannerslider',$bannerslider);
+    $bannerslider['bannerslider']=Bannerslider::all();
+    return view('admin.bannerslider.bannersliderlist',$bannerslider);
    
 }
     public function  addbannerslider()
@@ -37,7 +37,7 @@ public function  submitbannerslider(Request $request)
         'heading_one'=> 'required',
         'heading_two'=> 'required',
         'heading_three'=> 'required',
-        'bannerslider_image'=> 'required',
+        'image'=> 'required',
 
     ]);
 
@@ -48,17 +48,17 @@ public function  submitbannerslider(Request $request)
         'heading_one'=>$request->heading_one,
         'heading_two'=>$request->heading_two,
         'heading_three'=>$request->heading_three,
-        'bannerslider_image'=>$request->bannerslider_image,
+        'image'=>$request->image,
 
 
 
     ];
 
-        if($request->hasFile('bannerslider_image')){
-        $path = $request->file('bannerslider_image');
-        $path = $request->bannerslider_image->store('public/media');
+        if($request->hasFile('image')){
+        $path = $request->file('image');
+        $path = $request->image->store('public/media');
         $path = basename($path);
-        $Bannerslider['bannerslider_image']= $path;
+        $Bannerslider['image']= $path;
      }
 
     //
@@ -83,11 +83,11 @@ public function  submitbannerslider(Request $request)
 
 
 
-        if($request->hasFile('bannerslider_image')){
-        $path = $request->file('bannerslider_image');
-        $path = $request->bannerslider_image->store('public/media');
+        if($request->hasFile('image')){
+        $path = $request->file('image');
+        $path = $request->image->store('public/media');
         $path = basename($path);
-        $Bannerslider->bannerslider_image = $path;
+        $Bannerslider->image = $path;
         }
 
 

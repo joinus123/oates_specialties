@@ -23,7 +23,7 @@ class SliderimageController extends Controller
     public function  editsliderimage($id){
     
       
-        $editslider['editslider']=Sliderimage::all();
+        $editslider['editslider']=Sliderimage::find($id);
         return view('admin.sliderimage.editsliderimage' ,$editslider);
        
     }
@@ -68,7 +68,7 @@ class SliderimageController extends Controller
 
         $Slider=Sliderimage::find($request->id);
  
-        $Slider->slider_description= $request->slider_description;
+        $Slider->slider_description=$request->slider_description;
        
      
  

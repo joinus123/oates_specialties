@@ -22,7 +22,7 @@ class AboutusController extends Controller
     public function  editaboutus($id){
     
       
-        $editteams['editteams']=Aboutus::all();
+        $editteams['editteams']=Aboutus::find($id);
         return view('admin.aboutus.editteam' ,$editteams);
        
     }
@@ -51,13 +51,13 @@ class AboutusController extends Controller
         $path = $request->file('image');
         $path = $request->image->store('public/media');
         $path = basename($path);
-       $team['image'] = $path;
+        $team['image'] = $path;
         }
 
     
-     Aboutus::insert($team);
+       Aboutus::insert($team);
 
-     return redirect()->route('view-aboutus')->withSuccess('Great! Data successfully insert with validation.');
+      return redirect()->route('view-aboutus')->withSuccess('Great! Data successfully insert with validation.');
    
     }
     public function updateaboutus(Request $request){

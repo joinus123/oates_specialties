@@ -29,6 +29,12 @@
                 </select>
                 </div>
 
+                <div class="form-group">
+                  <label> Product<span class="dls"> Description</span> </label>
+                  <input type="text" class="form-control" id="product_description" name="product_description" value="{{ $view->product_description}}" >
+                  <span class="text-danger">{{ $errors->first('product_description') }}</span>
+                </div>
+
             <div class="form-group">
                 <label> Product <span class="dls">Orignal Price</span> </label>
                 <input type="name" class="form-control" id="orignal_price" value="{{ $view->orignal_price}}" name="orignal_price" >
