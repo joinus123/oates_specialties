@@ -85,7 +85,7 @@
                            <div class="social-link">
                             <ul class="list-inline">
                               @foreach($socialmedialinks as $links)
-                                 <li class="list-inline-item"><a href="#"><img src="{{asset('storage/media/'.$links->socialmedia_image)}}"></a></li>
+                                 <li class="list-inline-item"><a href="{{$links->socialmedia_name}}"><img src="{{asset('storage/media/'.$links->socialmedia_image)}}"></a></li>
                                  @endforeach
                                </ul>
                              
@@ -109,6 +109,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
       <script src="{{asset('assets/js/aos.min.js')}}"></script>
       <script src="{{asset('assets/js/custom.js')}}"></script>
+      <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
       <script>
          AOS.init();
       </script>

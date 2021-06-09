@@ -7,6 +7,7 @@ use App\Models\Products;
 use App\Models\Category;
 use App\Models\Sitesetting;
 use App\Models\Socialmedialink;
+use Darryldecode\Cart;
 class CartController extends Controller
 {
     
@@ -35,7 +36,8 @@ class CartController extends Controller
             $Sitesettings=Sitesetting::all();
             $socialmedialinks=Socialmedialink::all();
         $cartCollection = \Cart::getContent();
-       // dd($cartCollection);
+        
+    //    dd($cartCollection);
         return view('frontend.wishlist')->with([ 'socialmedialinks' => $socialmedialinks,'cartCollection' => $cartCollection,'product'=>$product,'Categorys'=>$category,'Sitesettings'=>$Sitesettings]);;
     }
 

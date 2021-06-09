@@ -13,7 +13,9 @@
 <div class="row justify-content-center">
 <div class="col-12 col-sm-12 col-md-12 text-center p-0 mt-3 mb-2">
 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-<form id="msform">
+
+   <form method="POST" id="msform" action="{{ route('stripe.payment') }}">
+      @csrf
 <!-- progressbar -->
 <ul id="progressbar">
     <li class="active" id="account"><span class="round-tab">
@@ -36,14 +38,15 @@
 <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
 </div> <br> <!-- fieldsets -->
-@guest
+
 <fieldset>
     <div class="form-card">
         <div class="row">
+         @guest
             <div class="col-md-6" style="border-right: 3px dashed #940026;">
                 <h4>Account Information:</h4>
-                <form method="POST" action="{{ route('login') }}">
-                  @csrf
+              
+               
                 <div class="form-group row">
                   <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
@@ -72,22 +75,34 @@
            </div>
 
          
-                    <button type="submit" class="checkout-btn mr-2">login</button>
+           <div class="form-group row mb-0">
+            <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Login') }}
+                </button>
+
+               
+            </div>
+        </div>
                   
 
             </div>
+            @endguest
+            @guest
              <div class="col-md-6">
                 <h4>Checkout As A Guest User :</h4>
                 <div class="mt-4">
                 <a href="#" class="checkout-btn">guest user</a>
                 </div>
             </div>
+            @endguest
         </div> 
 <!--                             <label class="fieldlabels">Email: *</label> <input type="email" name="email" placeholder="Email Id" /> <label class="fieldlabels">Username: *</label> <input type="text" name="uname" placeholder="UserName" /> <label class="fieldlabels">Password: *</label> <input type="password" name="pwd" placeholder="Password" /> <label class="fieldlabels">Confirm Password: *</label> <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
     </div> 
+   
     <input type="button" name="next" class="next action-button"  value="NEXT" />
     <!-- <a href="#" class="next checkout-btn float-right">save and continue</a> -->
-@endguest
+
 </fieldset>
 <fieldset>
     <div class="form-card">
@@ -100,53 +115,49 @@
        <div class="row">
           <div class="col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control checkout-form-1" placeholder="First Name" value="" name="customer_fname" data-validation="required name" required="">
+                <input type="text" class="form-control checkout-form-1" placeholder="First Name" value="" name="full_name" data-validation="required name" required="">
              </div>
           </div>
           <div class="col-md-6">
              <div class="form-group">
-                <input type="text" class="form-control checkout-form-1" placeholder="Last Name" name="customer_lname" data-validation="required name" required="">
+                <input type="text" class="form-control checkout-form-1" placeholder="Last Name" name="last_name" data-validation="required name" required="">
              </div>
           </div>
        </div>
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <input type="text" name="billing_street" class="form-control checkout-form-1" placeholder="Street Address" data-validation="required" required="">
+          <input type="text" name="address" class="form-control checkout-form-1" placeholder="Street Address" data-validation="required" required="">
        </div>
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <input type="email" class="form-control checkout-form-1" placeholder=""   name="customer_email" data-validation="required email" required="">
+          <input type="email" class="form-control checkout-form-1" placeholder="email_address"   name="email" data-validation="required email" required="">
        </div>
     </div>
-    <div class="col-md-6">
-      <div class="form-group">
-         <input type="password" class="form-control checkout-form-1" placeholder=""  name="curtomer_password" data-validation="required email" required="">
-      </div>
-   </div>
+  
     <div class="col-md-6">
        <div class="row">
           <div class="col-md-6">
              <div class="form-group">
-                <input type="text" name="billing_city" class="form-control checkout-form-1" placeholder="Town / City" data-validation="required" required="">
+                <input type="text" name="city" class="form-control checkout-form-1" placeholder="Town / City" data-validation="required" required="">
              </div>
           </div>
           <div class="col-md-6">
              <div class="form-group">
-                <input type="text" class="form-control checkout-form-1" placeholder="ZIP Code" name="orders_zip" data-validation="required number" required="">
+                <input type="text" class="form-control checkout-form-1" placeholder="ZIP Code" name="zipcode" data-validation="required number" required="">
              </div>
           </div>
        </div>
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <input type="number" class="form-control checkout-form-1" placeholder="Phone" name="customer_phone" data-validation="required number" required="">
+          <input type="number" class="form-control checkout-form-1" placeholder="Phone" name="phone" data-validation="required number" required="">
        </div>
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <select id="billing_state" name="billing_state" class="form-control checkout-form-1" placeholder="State" data-validation="required" required="">
+          <select id="billing_state" name="select_state" class="form-control checkout-form-1" placeholder="State" data-validation="required" required="">
              <option value="">Select States</option>
              <option value="AL">Alabama</option>
              <option value="AK">Alaska</option>
@@ -212,24 +223,24 @@
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <input type="text" class="form-control checkout-form-1" name="additional_notes" placeholder="Additional Brief" data-validation="required" required="">
+          <input type="text" class="form-control checkout-form-1" name="additional_brief" placeholder="Additional Brief" data-validation="required" required="">
        </div>
     </div>
     <div class="col-md-6">
        <div class="form-group">
-          <select id="billing_country" name="billing_country" class="form-control checkout-form-1" placeholder="Country" data-validation="required">
+          <select id="billing_country" name="select_country" class="form-control checkout-form-1" placeholder="Country" data-validation="required">
              <option value="USA">United States</option>
           </select>
        </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-         <input type="text" class="form-control checkout-form-1" name="shipping_address" placeholder="Shipping Address" data-validation="required" required="">
+         <input type="text" class="form-control checkout-form-1" id="shipping_address" name="shipping_address" placeholder="Shipping Address" data-validation="required" required="">
       </div>
    </div>
    <div class="col-md-6">
       <div class="form-group">
-         <input type="text" class="form-control checkout-form-1" name="billing_address" placeholder="Billing Address" data-validation="required" required="">
+         <input type="text" class="form-control checkout-form-1" id="billing_address_address" name="billing_address" placeholder="Billing Address" data-validation="required" required="">
       </div>
    </div>
     
@@ -311,7 +322,7 @@
              <div class="col-md-12">
                 <div class="form-group">
                    <label>Card Number:</label>
-                   <input type="text" class="form-control checkout-form-1" minlength="16" maxlength="16" placeholder="Card Number" name="orders_card_num" data-validation="required number" data-validation-length="min16" required="">
+                   <input type="text" value="4242424242424242"class="form-control checkout-form-1" minlength="16" maxlength="16" placeholder="Card Number" name="ccnumber" data-validation="required number" data-validation-length="min16" required="">
                 </div>
              </div>
              <div class="col-md-6">
@@ -320,20 +331,12 @@
                    <div class="col-md-6">
                       <div class="form-group">
                          <!--<label>Card Number:</label>-->
-                         <select class="form-control checkout-form-1" id="sel1" name="orders_exp_date">
-                            <option value="" selected="" disabled="">Month</option>
-                            <option value="01">01</option>
-                            <option value="01">02</option>
-                            <option value="01">03</option>
-                            <option value="01">04</option>
-                            <option value="01">05</option>
-                            <option value="01">06</option>
-                            <option value="01">07</option>
-                            <option value="01">08</option>
-                            <option value="01">09</option>
-                            <option value="01">10</option>
-                            <option value="01">11</option>
-                            <option>12</option>
+                         <select class="form-control checkout-form-1" id="sel1" name="ccmonth">
+                            <option value="" selected="" name="">Month</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                           
+                           
                          </select>
                          <!--<input type="text" class="form-control checkout-form-1" minlength="16" maxlength="16" placeholder="Card Number" name="orders_card_num" data-validation="required number" data-validation-length="min16"  required>-->
                       </div>
@@ -341,21 +344,9 @@
                    <div class="col-md-6">
                       <div class="form-group">
                          <!--<label>Card Number:</label>-->
-                         <select class="form-control checkout-form-1" id="selectYear" name="orders_exp_date">
-                            <option value="" selected="" disabled="">Year</option>
-                            <!--<option value="01">01</option>-->
-                            <!--<option value="01">02</option>-->
-                            <!--<option value="01">03</option>-->
-                            <!--<option value="01">04</option>-->
-                            <!--<option value="01">05</option>-->
-                            <!--<option value="01">06</option>-->
-                            <!--<option value="01">07</option>-->
-                            <!--<option value="01">08</option>-->
-                            <!--<option value="01">09</option>-->
-                            <!--<option value="01">10</option>-->
-                            <!--<option value="01">11</option>-->
-                            <!--<option>12</option>-->
-                         <option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option><option value="2036">2036</option><option value="2037">2037</option><option value="2038">2038</option><option value="2039">2039</option><option value="2040">2040</option><option value="2041">2041</option><option value="2042">2042</option><option value="2043">2043</option><option value="2044">2044</option><option value="2045">2045</option><option value="2046">2046</option><option value="2047">2047</option><option value="2048">2048</option><option value="2049">2049</option><option value="2050">2050</option><option value="2051">2051</option></select>
+                         <select class="form-control checkout-form-1" id="selectYear" name="ccyear">
+                            <option value="" selected="" >Year</option>
+                         <option value="2021">2021</option></select>
                          <!--<input type="text" class="form-control checkout-form-1" minlength="16" maxlength="16" placeholder="Card Number" name="orders_card_num" data-validation="required number" data-validation-length="min16"  required>-->
                       </div>
                    </div>
@@ -368,7 +359,7 @@
              <div class="col-md-6">
                 <div class="form-group">
                    <label>CVV:</label>
-                   <input type="number" class="form-control checkout-form-1" placeholder="Card Code" name="orders_card_code" data-validation="required number" required="">
+                   <input type="number" class="form-control checkout-form-1" placeholder="Card Code" name="cvc" data-validation="required number" required="">
                 </div>
              </div>
              <div class="col-md-12">
@@ -381,8 +372,9 @@
     </div>
     <div class="row">
     <div class="col-md-12 text-right">
-
+     
        <button type="submit" class="action-button">Submit</button>
+      
     </div>
  </div>
 </fieldset>
@@ -392,6 +384,58 @@
 </div>
 </div>
 </section>
+<script type="text/javascript">
+   $(function() {
+       var $form         = $(".validation");
+     $('form.validation').bind('submit', function(e) {
+       var $form         = $(".validation"),
+           inputVal = ['input[type=email]', 'input[type=password]',
+                            'input[type=text]', 'input[type=file]',
+                            'textarea'].join(', '),
+           $inputs       = $form.find('.required').find(inputVal),
+           $errorStatus = $form.find('div.error'),
+           valid         = true;
+           $errorStatus.addClass('hide');
+    
+           $('.has-error').removeClass('has-error');
+       $inputs.each(function(i, el) {
+         var $input = $(el);
+         if ($input.val() === '') {
+           $input.parent().addClass('has-error');
+           $errorStatus.removeClass('hide');
+           e.preventDefault();
+         }
+       });
+     
+       if (!$form.data('cc-on-file')) {
+         e.preventDefault();
+         Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+         Stripe.createToken({
+           number: $('.card-num').val(),
+           cvc: $('.card-cvc').val(),
+           exp_month: $('.card-expiry-month').val(),
+           exp_year: $('.card-expiry-year').val()
+         }, stripeHandleResponse);
+       }
+     
+     });
+     
+     function stripeHandleResponse(status, response) {
+           if (response.error) {
+               $('.error')
+                   .removeClass('hide')
+                   .find('.alert')
+                   .text(response.error.message);
+           } else {
+               var token = response['id'];
+               $form.find('input[type=text]').empty();
+               $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+               $form.get(0).submit();
+           }
+       }
+     
+   });
+   </script>
 
 @include('frontend.include.footer')
 

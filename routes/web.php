@@ -120,6 +120,13 @@ use Illuminate\Support\Facades\Auth;
     Route::get('addcart','AppController@addcart')->name('add-cart');
     Route::get('chackout','AppController@checkout')->name('checkout');
     Route::get('productcategory/{id}', 'AppController@productcategory')->name('productcategory');
+    
+    Route::get('/stripe-payment', 'StripeController@handleget')->name('stripe.checkout');
+    Route::post('/stripe-payment', 'StripeController@handlepost')->name('stripe.payment');
+
+
+
+
 
 
     //Add to Cart
