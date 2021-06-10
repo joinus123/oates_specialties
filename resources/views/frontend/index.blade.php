@@ -293,7 +293,7 @@
                   <div class="blog-sub-pera p-4">
                      <p> {!!$ourblog->description!!}</p>
                   </div>
-                  <a href="#" class="custom-btn">read more</a>
+                  <a href="{{route('blog.page')}}" class="custom-btn">read more</a>
                </div>
           </div>
             @endforeach

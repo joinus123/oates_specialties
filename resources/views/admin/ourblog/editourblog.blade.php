@@ -41,7 +41,7 @@
                 </div>
       </div>
         <div class="box-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Update</button>
           <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
           <a href="" class="btn btn-info">Cancel</a>
         </div>

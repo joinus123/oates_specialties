@@ -6,7 +6,7 @@
       <div>
         <h1 style="display:inline-block;">
            All Product     </h1>
-        <h3 class="box-title" style="display:inline-block;"></h3>
+        <h3 class="box-title" style="display:inline-block;">Edit</h3>
       </div>
       <div class="col-md-6">
         <form role="form" action="{{route('update-product',[$view->id])}}" method="post" enctype="multipart/form-data">
@@ -35,11 +35,7 @@
                   <span class="text-danger">{{ $errors->first('product_description') }}</span>
                 </div>
 
-            <div class="form-group">
-                <label> Product <span class="dls">Orignal Price</span> </label>
-                <input type="name" class="form-control" id="orignal_price" value="{{ $view->orignal_price}}" name="orignal_price" >
-                <span class="text-danger">{{ $errors->first('orignal_price') }}</span>
-              </div>
+           
 
               <div class="form-group">
                 <label> Product <span class="dls">Discount price</span> </label>
@@ -67,12 +63,12 @@
                     <span class="text-danger">{{ $errors->first('bannerslider_image') }}</span>
                 </div>
                 </div>
-              
+              {{-- @dd($view->new_store_product); --}}
                 <div class="form-group">
                   <label> Product <span class="dls">Is New Store?</span> </label>
                   <select class="form-control" name="new_product">
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
+                    <option value="0" <?php echo $view->new_store_product==0?"selected":""?> >No</option>
+                    <option value="1" <?php echo $view->new_store_product==1?"selected":""?>>Yes</option>
                   </select>
                  </div>
 
@@ -83,22 +79,22 @@
               <div class="form-group">
                 <label> Product <span class="dls">Is Best Seller?</span> </label>
                 <select class="form-control" name="seller_product">
-                  <option value="0">No</option>
-                  <option value="1">Yes</option>
+                  <option value="0"<?php echo $view->best_seller==0?"selected":""?>>No</option>
+                  <option value="1"<?php echo $view->best_seller==1?"selected":""?>>Yes</option>
                 </select>
                 </div>
                 
                 <div class="form-group">
                   <label> Product <span class="dls">Is Featured?</span> </label>
                   <select class="form-control" name="featured_product">
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
+                    <option value="0"<?php echo $view->featured_product==0?"selected":""?>>No</option>
+                    <option value="1"<?php echo $view->featured_product==1?"selected":""?>>Yes</option>
                   </select>
                   </div>
       
         </div>
         <div class="box-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Update</button>
           <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
           <a href="" class="btn btn-info">Cancel</a>
         </div>

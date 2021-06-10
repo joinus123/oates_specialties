@@ -58,6 +58,14 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/updateproduct/{id}', 'AllproductController@updateproduct')->name('update-product');
      Route::post('/submitproduct', 'AllproductController@submitproduct')->name('submit-product');
      Route::get('/deleteproduct/{id}', 'AllproductController@deleteproduct')->name('delete-product');
+      
+     
+     Route::get('/view/detail', 'ProductdetailController@viewproductdetail')->name('view-detail');
+     Route::get('/add/detail', 'ProductdetailController@addproductdetail')->name('add-productdetail');
+     Route::get('/edit/detail/{id}', 'ProductdetailController@editproductdetail')->name('edit-productdetail');
+     Route::post('/update/detail/{id}', 'ProductdetailController@updateproductdetail')->name('update-productdetail');
+     Route::post('/submit/detail', 'ProductdetailController@submitproductdetail')->name('submit-productdetail');
+     Route::get('/delete/detail/{id}', 'ProductdetailController@deleteproductdetail')->name('delete-productdetail');
 
      Route::get('/viewblog', 'OurblogController@viewblog')->name('view-blog');
      Route::get('/addblog', 'OurblogController@addblog')->name('add-blog');
@@ -113,13 +121,21 @@ use Illuminate\Support\Facades\Auth;
     Route::get('','AppController@homepage')->name('home-page');
     Route::get('account','AppController@account')->name('user-account');
     Route::get('aboutus','AppController@aboutus')->name('about.us');
+    Route::get('blog','AppController@blog')->name('blog.page');
     Route::get('video','AppController@video')->name('video');
     Route::get('orderstatus','AppController@orderstatus')->name('order-status');
     Route::get('wishlist','AppController@wishlist')->name('wish-list');
     Route::get('allproduct','AppController@allproduct')->name('all-product');
+    Route::get('product/detail','AppController@productdetail')->name('product-detail');
     Route::get('addcart','AppController@addcart')->name('add-cart');
     Route::get('chackout','AppController@checkout')->name('checkout');
     Route::get('productcategory/{id}', 'AppController@productcategory')->name('productcategory');
+
+Route::get('/product/{id}', 'AppController@product')->name('product');
+
+    Route::get('gift/certificate','AppController@giftcertificate')->name('gift-certificate');
+    Route::get('about/resistance','AppController@aboutresistance')->name('about-resistance');
+    Route::get('contactus','AppController@contactus')->name('contact-us');
     
     Route::get('/stripe-payment', 'StripeController@handleget')->name('stripe.checkout');
     Route::post('/stripe-payment', 'StripeController@handlepost')->name('stripe.payment');

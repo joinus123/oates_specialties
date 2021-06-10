@@ -24,30 +24,48 @@ class StripeController extends Controller
       
 
          \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET'));
-        		
-         $amount = 100;
-         $amount *= 100;
-         $amount = (int) $amount;
-         
-         \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET'));
          $intent = \Stripe\PaymentIntent::create([
-                "amount" => 120 * 100,
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => "Make payment and chill." 
-        ]);
+             'amount' => \Cart::getTotal()."00",
+             'currency' => 'usd',
+             // Verify your integration in this guide by including this parameter
+             'metadata' => ['integration_check' => 'accept_a_payment'],
+           ]);
+ 
+           //return response()->json([ 'id' => $session->id ],200);
+          
+     
   
-        \Stripe\Token::create([
+           $resultResponse = \Stripe\Token::create([
             "card" => [
                 "number" => $request->ccnumber,
                 "exp_month" => $request->ccmonth,
-                "exp_year" => "2021",
+                "exp_year" => $request->ccyear,
                 "cvc" => $request->cvc
             ]
         ]);
- 
+        //Create Stripe Customer - Starts Here
+        $token = $resultResponse['id']; // use this token to create a customer
         
-    
+        
+        $customer = \Stripe\Customer::create(array(
+            'email' => $request->email,
+            'source' => $token
+        ));
+        $customerId = $customer->id;
+        //update customerid of stripe in users tabl
+        
+               
+            $charge = \Stripe\Charge::create(array(
+                'customer' => $customerId,
+                'amount' => \Cart::getTotal()."00",
+                'currency' => 'usd',
+                'description'=> 'subscription payment'
+            ));
+        
+        
+        
+
+        
          
             $checkout=[
            
@@ -73,8 +91,8 @@ class StripeController extends Controller
             
             ];
             Checkout::insert($checkout);
-          
-            return redirect()->route('order-status')->with('success_msg', 'Item is Added to Cart!');
+            \Cart::clear();
+            return redirect()->route('order-status')->with('message', 'payment is successfully done!');
           
         return back();
     }

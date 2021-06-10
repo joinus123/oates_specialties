@@ -10,18 +10,18 @@ class ContactController extends Controller
     public function  viewContact()
     {
         $Contacts['Contacts']=Contact::all();
-        return view('admin.Contact.list',$Contacts);
+        return view('admin.contact.list',$Contacts);
     }
 
     public function  addContact()
     {
-        return view('admin.Contact.add');
+        return view('admin.contact.add');
     }
     public function  editContact($id){
     
       
         $editcontacts['editcontacts']=Contact::all();
-        return view('admin.Contact.edit',$editcontacts);
+        return view('admin.contact.edit',$editcontacts);
        
     }
     public function  submitContact(Request $request){

@@ -10,8 +10,14 @@
       </div>
    </div>
 </div>
-<!-- end-inner-banner -->
-<!-- whishlist -->
+
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ success_msg }}</strong>
+</div>
+<br>
+@endif
 <section class="whishlist inner_padding">
    <div class="whishlist-wrapper">
       <div class="container">
@@ -21,6 +27,7 @@
                   <table class="table table-hover text-center">
                      <thead>
                         <tr>
+                           
                            <th scope="col">Thumbnail</th>
                            <th scope="col">Product</th>
                            <th scope="col">Quantity</th>
@@ -35,7 +42,7 @@
                         <tr>
                            <td><img src="{{asset('storage/media/'.$item->attributes->img)}}"></td>
                            <td>{{$item->name}}</td>
-                           <td><input  type="number" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$item->quantity}}" required >
+                           <td>{{$item->quantity}}</td>
                            </td>
                            <td>${{$item->price}}</td>
                            <td><a href="">${{ \Cart::get($item->id)->getPriceSum() }}</i></a></td>

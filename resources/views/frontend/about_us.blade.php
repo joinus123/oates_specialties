@@ -103,49 +103,18 @@
 
     
 
-                           <div class="row spacing">
-            <div class="col-md-4">
+            <div class="row spacing">
+               @foreach($teams as $team)
+             <div class="col-md-4">
                <div class="single-team">
-                  <img src="assets/images/team-img4.jpg" alt="" class="img-fluid">
+                  <img src="{{asset('storage/media/'.$team->image)}}" alt="" class="img-fluid">
                   <div class="team-hover">
-                     <h4>Lisa</h4>
+                     <h4>{{$team->name}}</h4>
                   </div>
                </div>
             </div>
-            <div class="col-md-4">
-               <div class="single-team">
-                  <img src="assets/images/team-img5.jpg" alt="" class="img-fluid">
-                  <div class="team-hover">
-                     <h4>Drayton</h4>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-4">
-               <div class="single-team">
-                  <img src="assets/images/team-img6.jpg" alt="" class="img-fluid">
-                  <div class="team-hover">
-                     <h4>Matt</h4>
-                  </div>
-               </div>
-            </div>
-                        <div class="col-md-4 offset-md-2">
-               <div class="single-team mt-4">
-                  <img src="assets/images/team-img7.jpg" alt="" class="img-fluid">
-                  <div class="team-hover">
-                     <h4>Stephone</h4>
-                  </div>
-               </div>
-            </div>
-                        <div class="col-md-4">
-               <div class="single-team mt-4">
-                  <img src="assets/images/team-img8.jpg" alt="" class="img-fluid">
-                  <div class="team-hover">
-                     <h4>Matt</h4>
-                  </div>
-               </div>
-            </div>
-
-         </div>
+             @endforeach
+              </div>
            </div>
 
             </div>

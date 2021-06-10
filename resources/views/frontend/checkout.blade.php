@@ -285,21 +285,18 @@
              <div class="order-information">
                 <h4>Order Information</h4>
                 <hr>
+                
                 <div class="order-box">
-                   <p>Number Of Items</p>
-                   <span>1</span>
-                </div>
-                <div class="order-box">
-                   <p>Item Total</p>
-                   <span>$ 11,980.00</span>
+                   <p>Items Total</p>
+                   <span> ${{ \Cart::getTotal() }}</span>
                 </div>
                 <div class="order-box">
                    <p>Shipping</p>
                    <span>Free Shipping</span>
                 </div>
-                <div class="total-box">
+                <div class="order-box">
                    <h6>Total</h6>
-                   <span>$ 11,980.00</span>
+                   <span>${{ \Cart::getTotal() }}</span>
                 </div>
              </div>
           </div>

@@ -17,6 +17,7 @@ class AllproductController extends Controller
 {
     public function  viewproduct(){
     $product=Products::all();
+    $product=Products::paginate(3);
     return view('admin.allproduct.viewproduct')->with('product',$product);
    
 }
@@ -32,6 +33,8 @@ class AllproductController extends Controller
     
     $view['view']=Products::find($id);
     $category['category']=Category::all();
+
+    // dd($view);
     return view('admin.allproduct.editproduct',$view,$category);
    
 }
@@ -45,7 +48,6 @@ public function  submitproduct(Request $request)
 
         'name'=> 'required',
         'product_description'=>'required',
-        'orignal_price'=> 'required',
         'price'=> 'required',
         'discounted_price'=> 'required',
         'new_product'=> 'required',
@@ -62,7 +64,6 @@ public function  submitproduct(Request $request)
         'name'=>$request->name,
         'product_description'=>$request->product_description,
         'category_id'=>$request->category,
-        'orignal_price'=>$request->orignal_price,
         'discounted_price'=>$request->discounted_price,
         'price'=>$request->price,
         'new_store_product'=>$request->new_product,
@@ -95,10 +96,11 @@ public function  submitproduct(Request $request)
 
        $Product=Products::find($request->id);
 
+     
+
        $Product->product_description= $request->product_description;
        $Product->name= $request->name;
        $Product->category_id=$request->category;
-       $Product->orignal_price= $request->orignal_price;
        $Product->discounted_price= $request->discounted_price;
        $Product->price= $request->price;
        $Product->best_seller=$request->seller_product;

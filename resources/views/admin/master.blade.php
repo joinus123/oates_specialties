@@ -54,6 +54,7 @@
                 <li><a href="{{route('view-brandlist')}}">Our Brand</a></li>
                 <li><a href="{{route('view-category')}}">Catogary Product</a></li>
                 <li><a href="{{route('view-product')}}">All Product</a></li>
+                <li><a href="{{route('view-detail')}}">Product Detail</a></li>
                 <li><a href="{{route('view-blog')}}">Our Blog</a></li>
                 <li><a href="{{route('view-socialmedialink')}}">Social Media Icon</a></li>
                 <li><a href="{{route('view-slider')}}">Slider Image</a></li>

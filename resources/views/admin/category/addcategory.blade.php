@@ -23,7 +23,7 @@
         <div class="box-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="{{ route('dashboard') }}" class="btn btn-danger">Dashboard</a>
-          <a href="" class="btn btn-info">Cancel</a>
+          <a href="{{route('view-category')}}" class="btn btn-info">Cancel</a>
         </div>
       </form>
     </div>

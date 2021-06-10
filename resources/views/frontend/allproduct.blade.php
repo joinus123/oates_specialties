@@ -45,7 +45,7 @@
 
                             <div class="product-grid5">
                                 <div class="product-image5">
-                                    <a href="#">
+                                    <a href="{{ route('product', [$view->id]) }}">
                                         <img class="pic-1" src="{{ asset('storage/media/' . $view->image) }}">
                                         <img class="pic-2" src="{{ asset('storage/media/' . $view->image) }}">
                                     </a>
@@ -97,12 +97,7 @@
                             <li class="pag-link list-inline-item"><a href="#"><i
                                         class="fa fa-angle-double-left"></i></a></li>
                             <li class="pag-link list-inline-item"><a href="#">1</a></li>
-                            <li class="pag-link list-inline-item"><a href="#">2</a></li>
-                            <li class="pag-link current list-inline-item"><span>3</span></li>
-                            <li class="pag-link list-inline-item"><a href="#">4</a></li>
-                            <li class="pag-link list-inline-item"><a href="#">5</a></li>
-                            <li class="pag-link list-inline-item"><a href="#">
-                            <li class="fa fa-angle-double-right"></a></li>
+                           
                         </ul>
                     </div>
                 </div>

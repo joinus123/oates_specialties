@@ -53,21 +53,9 @@
                            </li>
                            <li class="list-inline-item"><a href="{{route('user-account')}}"><img src="{{asset('assets/images/top-header-img-3.png')}}"> &nbsp;my account</a></li>
                            <li class="list-inline-item"><a href="{{route('about.us')}}"><img src="{{asset('assets/images/top-header-img-4.png')}}"> &nbsp; about us</a></li>
-                           <li class="list-inline-item"><a href="#"><img src="{{asset('assets/images/top-header-img-5.png')}}"> &nbsp; blog</a></li>
+                           <li class="list-inline-item"><a href="{{route('blog.page')}}"><img src="{{asset('assets/images/top-header-img-5.png')}}"> &nbsp; blog</a></li>
                            <li class="list-inline-item"><a href="{{route('video')}}"><img src="{{asset('assets/images/top-header-img-6.png')}}"> &nbsp; videos</a></li>
-                           <li class="list-inline-item dropdown-tn"><a href="#" class="dropdown-tn" data-toggle="dropdown"><img src="{{asset('assets/images/top-header-img-7.png')}}"> &nbsp; compare <span>0</span></a>
-                                <div class="dropdown-content-tn">
-                                          <h6>FIRST RESPONDER RESISTANCE TUBING</h6>
-                                          <p>REMOVE THIS ITEM</p>
-                                          <div class="p-3"></div>
-                                          <h6>HANDMASTER PLUS</h6>
-                                          <p>REMOVE THIS ITEM</p>
-                                          <div class="mt-3">
-                                          <a href="#" class="custom-btn text-center">clear all</a>
-                                          <a href="compare.php" class="custom-btn text-center">compare</a>
-                                       </div>        
-                                       </div>
-                                   </li>
+                          
                            <li class="list-inline-item"><a href="{{route('order-status')}}"><img src="{{asset('assets/images/top-header-img-8.png')}}"> &nbsp; order status</a></li>
                            <li class="list-inline-item"><i class="fa fa-heart heart" aria-hidden="true"></i><a href="{{route('cart.index')}}"> &nbsp; wishlist</a></li>
                         </ul> 
@@ -131,8 +119,8 @@
                <div class="row h-100 align-items-center align-content-center">
                   <div class="col-md-7 col-6">
                      <div class="logo-sec">
-                        <a href="index.php"><img src="{{asset('storage/media/'.$Sitesettings[0]->header_logo)}}" class="img-fluid img-1"></a>
-                       <a href="index.php"><img src="{{asset('storage/media/'.$Sitesettings[0]->header_logo)}}" class="img-fluid img-2"></a>
+                        <a href="{{route('home-page')}}"><img src="{{asset('storage/media/'.$Sitesettings[0]->header_logo)}}" class="img-fluid img-1"></a>
+                       <a href="{{route('home-page')}}"><img src="{{asset('storage/media/'.$Sitesettings[0]->header_logo)}}" class="img-fluid img-2"></a>
                      </div>
                   </div>
                   <div class="col-md-5 col-6">

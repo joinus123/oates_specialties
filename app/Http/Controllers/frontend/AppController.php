@@ -12,6 +12,8 @@ use App\Models\Sitesetting;
 use App\Models\Sliderimage;
 use App\Models\Socialmedialink;
 use App\Models\Video;
+use App\Models\Aboutus;
+use App\Models\Contact;
 
 class AppController extends Controller
 {
@@ -41,7 +43,8 @@ class AppController extends Controller
       
       
        
-    }     
+    }   
+    
     
     public function productcategory($id)
     {
@@ -74,7 +77,18 @@ class AppController extends Controller
         $Categorys=Category::all();
         $Sitesettings=Sitesetting::all();
         $socialmedialinks=Socialmedialink::all();
-        return view('frontend.about_us')->with(['Categorys'=>$Categorys,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks,]);
+        $teams=Aboutus::all();
+        return view('frontend.about_us')->with(['Categorys'=>$Categorys,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks,'teams'=>$teams]);
+    }
+
+    public function blog()
+    {
+
+        $Categorys=Category::all();
+        $Sitesettings=Sitesetting::all();
+        $socialmedialinks=Socialmedialink::all();
+        $blogs=Ourblog::all();
+        return view('frontend.blog')->with(['Categorys'=>$Categorys,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks,'blogs'=>$blogs]);
     }
        public function video()
     {
@@ -123,4 +137,55 @@ class AppController extends Controller
        return view('frontend.allproduct')->with([ 'Categorys'=>$Categorys,'product'=>$product,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks,]);
     }
   
+    public function giftcertificate()
+    {
+    
+       $Categorys=Category::all();
+       $product=Products::all();
+       $Sitesettings=Sitesetting::all();
+       $socialmedialinks=Socialmedialink::all();
+       return view('frontend.gift_certificate')->with([ 'Categorys'=>$Categorys,'product'=>$product,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks,]);
+    }
+    public function aboutresistance()
+    {
+    
+       $Categorys=Category::all();
+       $product=Products::all();
+       $Sitesettings=Sitesetting::all();
+       $socialmedialinks=Socialmedialink::all();
+       return view('frontend.about_resistance')->with([ 'Categorys'=>$Categorys,'product'=>$product,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks,]);
+    }
+    public function contactus()
+    {
+
+    $Categorys=Category::all();
+    $product=Products::all();
+    $Sitesettings=Sitesetting::all();
+    $socialmedialinks=Socialmedialink::all();
+    $contacts=Contact::all();
+    return view('frontend.contactus')->with([ 'Categorys'=>$Categorys,'product'=>$product,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks, 'contacts'=>$contacts]);
+ }
+
+ public function productdetail()
+ {
+
+ $Categorys=Category::all();
+ $product=Products::all();
+ $Sitesettings=Sitesetting::all();
+ $socialmedialinks=Socialmedialink::all();
+ $contacts=Contact::all();
+ return view('frontend.product_detail')->with([ 'Categorys'=>$Categorys,'product'=>$product,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks, 'contacts'=>$contacts]);
+}
+public function product($id)
+    {
+    
+      $Categorys=Category::all();
+      $product=Products::all();
+      $Sitesettings=Sitesetting::all();
+      $socialmedialinks=Socialmedialink::all();
+      $contacts=Contact::all();
+      $product_detail=Products::where('id', $id)->get()->toArray();
+       return view('frontend.product_detail')->with([ 'product_detail'=>$product_detail,'Categorys'=>$Categorys,'product'=>$product,'Sitesettings'=>$Sitesettings,'socialmedialinks'=>$socialmedialinks, 'contacts'=>$contacts]);
+    }
+
 }

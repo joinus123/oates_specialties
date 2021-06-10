@@ -13,18 +13,18 @@
             public function  viewvideo()
         {
             $videos['videos']=Video::all();
-            return view('admin.Video.videolist',$videos);
+            return view('admin.video.videolist',$videos);
         }
         public function  addvideo()
         {
-            return view('admin.Video.addvideo');
+            return view('admin.video.addvideo');
         }
         public function  editvideo($id){
          
         
           
             $editvideos['editvideos']=Video::find($id);
-            return view('admin.Video.editvideo' ,$editvideos);
+            return view('admin.video.editvideo' ,$editvideos);
            
         }
         public function  submitvideo(Request $request)

@@ -17,6 +17,9 @@ class SitesettingController extends Controller
       $sitesetting['sitesetting']=Sitesetting::all();
       return view('admin.sitesetting',$sitesetting);
   }
+
+
+ 
     
 
 
