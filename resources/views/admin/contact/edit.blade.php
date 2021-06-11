@@ -8,13 +8,13 @@
         <h3 class="box-title" style="display:inline-block;">Edit</h3>
       </div>
       <div class="col-md-6">
-        <form role="form" action="{{route('submit-contact')}}" method="post" enctype="multipart/form-data">
+        <form role="form" action="{{route('update-contact',[$editcontacts->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
 
               <div class="form-group">
                 <label>Contactus Icon<span class="dls"> Link</span> </label>
-                <input type="text" class="form-control" id="icon" name="icon" value="{{$editcontacts[0]->icon}}" >
+                <input type="text" class="form-control" id="icon" name="icon" value="{{$editcontacts->icon}}" >
                 <span class="text-danger">{{ $errors->first('icon') }}</span>
               </div>
     
@@ -23,13 +23,13 @@
             
                 <div class="form-group">
                   <label>Contactus  <span class="dls">Heading</span> </label>
-                  <input type="name" class="form-control" id="name" name="heading" value="{{$editcontacts[0]->heading}}" >
+                  <input type="name" class="form-control" id="name" name="heading" value="{{$editcontacts->heading}}" >
                   <span class="text-danger">{{ $errors->first('heading') }}</span>
                 </div>
     
                 <div class="form-group">
                   <label>Contactus <span class="dls">Text</span> </label>
-                  <input type="name" class="form-control" id="name" name="text" value="{{$editcontacts[0]->text}}" >
+                  <input type="name" class="form-control" id="name" name="text" value="{{$editcontacts->text}}" >
                   <span class="text-danger">{{ $errors->first('text') }}</span>
                 </div>
      </div>

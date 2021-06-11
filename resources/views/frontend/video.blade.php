@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="sub-page-heading">
             <div class="container">
-                <h2>{{ $videos[0]->video_title}}</h2>
+                <h2>Video</h2>
             </div>
         </div>
 

@@ -13,6 +13,6 @@ class Contact extends Model
     'id',
     'heading',
 	'text',
-   'icon',
+    'icon',
     ];
 }

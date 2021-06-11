@@ -28,6 +28,19 @@ class CartController extends Controller
             
            return redirect()->route('order-status')->with('success_msg', 'Item is Added to Cart!');
     }
+
+
+    public function remove(request$request){
+    
+       
+        \Cart::remove($request->id);
+   
+       
+          
+        
+         return redirect()->route('order-status')->with('success_msg', 'Item is Added to Cart!');
+        }
+        
     
     
         public function cart()  {

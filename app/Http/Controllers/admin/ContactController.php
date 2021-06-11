@@ -20,7 +20,7 @@ class ContactController extends Controller
     public function  editContact($id){
     
       
-        $editcontacts['editcontacts']=Contact::all();
+        $editcontacts['editcontacts']=Contact::find($id);
         return view('admin.contact.edit',$editcontacts);
        
     }

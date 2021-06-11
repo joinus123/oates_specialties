@@ -46,7 +46,7 @@
                            </td>
                            <td>${{$item->price}}</td>
                            <td><a href="">${{ \Cart::get($item->id)->getPriceSum() }}</i></a></td>
-                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                           <td><a href="{{route('cart.remove',[$item->id])}}"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
                         @endforeach
                         @else

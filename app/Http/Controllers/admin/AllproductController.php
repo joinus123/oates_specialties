@@ -17,7 +17,7 @@ class AllproductController extends Controller
 {
     public function  viewproduct(){
     $product=Products::all();
-    $product=Products::paginate(3);
+    $product=Products::all();
     return view('admin.allproduct.viewproduct')->with('product',$product);
    
 }

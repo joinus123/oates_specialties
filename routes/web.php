@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Auth;
    
      Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
      Route::get('/userprofile', 'DashboardController@userprofile')->name('userprofile');
+     Route::post('/updateprofile','DashboardController@updateprofile')->name('profile');
 
      Route::get('/bannerslider', 'BannerController@viewbannerslider')->name('banner-slider');
      Route::get('/addbannerslider', 'BannerController@addbannerslider')->name('addbanner-slider');
@@ -94,8 +95,9 @@ use Illuminate\Support\Facades\Auth;
      Route::post('/aboutus/update/{id}', 'AboutusController@updateaboutus')->name('update-aboutus');
      Route::post('/aboutus/submit', 'AboutusController@submitaboutus')->name('submit-aboutus');
      Route::get('/aboutus/delete/{id}', 'AboutusController@deleteaboutus')->name('delete-aboutus');
-
-
+           
+     Route::get('/aboutus/detail', 'AboutusController@aboutusdetail')->name('view-aboutusdetail');
+     
      Route::get('/contact/view', 'ContactController@viewcontact')->name('view-contact');
      Route::get('/contact/add', 'ContactController@addcontact')->name('add-contact');
      Route::get('/contact/edit/{id}', 'ContactController@editcontact')->name('edit-contact');
@@ -150,7 +152,7 @@ Route::get('/product/{id}', 'AppController@product')->name('product');
     Route::get('/cart', 'CartController@cart')->name('cart.index');
     Route::post('/add', 'CartController@add')->name('cart.store');
     Route::post('/update', 'CartController@update')->name('cart.update');
-    Route::get('/remove', 'CartController@remove')->name('cart.remove');
+    Route::get('/remove/{id}', 'CartController@remove')->name('cart.remove');
     Route::post('/clear', 'CartController@clear')->name('cart.clear');
     
 });

@@ -24,12 +24,12 @@ class StripeController extends Controller
       
 
          \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET'));
-         $intent = \Stripe\PaymentIntent::create([
-             'amount' => \Cart::getTotal()."00",
-             'currency' => 'usd',
-             // Verify your integration in this guide by including this parameter
-             'metadata' => ['integration_check' => 'accept_a_payment'],
-           ]);
+        //  $intent = \Stripe\PaymentIntent::create([
+            //  'amount' => \Cart::getTotal()."00",
+            //  'currency' => 'usd',
+            //  // Verify your integration in this guide by including this parameter
+            //  'metadata' => ['integration_check' => 'accept_a_payment'],
+        //    ]);
  
            //return response()->json([ 'id' => $session->id ],200);
           

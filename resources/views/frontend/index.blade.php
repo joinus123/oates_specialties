@@ -91,7 +91,21 @@
                            <h5>{{$new_store_product['name']}}</h5>
                            <p>{{$new_store_product['product_description']}}</p>
                            <div class="price-btn d-flex">
-                           <a href="cart.php" class="custom-btn">add to cart </a>
+                              <form action="{{ route('cart.store') }}" id="myForm" method="POST">
+                                 {{ csrf_field() }}
+                                 <input type="hidden" value="{{ $new_store_product['id'] }}" id="id" name="id">
+                                 <input type="hidden" value="{{ $new_store_product['name'] }}" id="name" name="name">
+                                 <input type="hidden" value="{{ $new_store_product['price'] }}" id="price" name="price">
+                                 <input type="hidden" value="{{ $new_store_product['image'] }}" id="image" name="image">
+                                 <input type="hidden" value="1" id="quantity" name="quantity">
+     
+     
+     
+                                 <button type="submit" class="custom-btn" title="add to cart" data-tip="Add to Cart">
+                                     Add TO Card
+                                 </button>
+                                 {{-- <a onclick="mySubmit();"  id="myForm" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a> --}}
+                          </form>
                            <span>${{$new_store_product['price']}}</span>
                            </div>
                         </div>
@@ -137,8 +151,21 @@
                         <div class="sell-content p-3">
                            <h5>{{$best_seller['name']}}</h5>
                            <p>{{$best_seller['product_description']}}</p>
-                           <a href="cart.php" class="custom-btn cl-white border-black">add to cart </a>
-                           <span>${{$best_seller['price']}}</span>
+                           <form action="{{ route('cart.store') }}" id="myForm" method="POST">
+                              {{ csrf_field() }}
+                              <input type="hidden" value="{{ $best_seller['id'] }}" id="id" name="id">
+                              <input type="hidden" value="{{ $best_seller['name'] }}" id="name" name="name">
+                              <input type="hidden" value="{{ $best_seller['price'] }}" id="price" name="price">
+                              <input type="hidden" value="{{ $best_seller['image'] }}" id="image" name="image">
+                              <input type="hidden" value="1" id="quantity" name="quantity">
+                            
+                               <button type="submit" class="custom-btn" title="add to cart" data-tip="Add to Cart">
+                                 Add TO Card
+                             </button>
+                             <span>${{$best_seller['price']}}</span>
+                             {{-- <a onclick="mySubmit();"  id="myForm" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a> --}}
+                         </form>
+                        
                         </div>
                      </div>
                   </div>
@@ -168,7 +195,20 @@
                         <div class="product-content m-3">
                            <h5>{{$featured_product['name']}}</h5>
                            <p>{{$featured_product['product_description']}}</p>
-                           <a href="cart.php" class="custom-btn">add to cart </a>
+                           <form action="{{ route('cart.store') }}" id="myForm" method="POST">
+                              {{ csrf_field() }}
+                              <input type="hidden" value="{{ $featured_product['id'] }}" id="id" name="id">
+                              <input type="hidden" value="{{ $featured_product['name'] }}" id="name" name="name">
+                              <input type="hidden" value="{{ $featured_product['price'] }}" id="price" name="price">
+                              <input type="hidden" value="{{ $featured_product['image'] }}" id="image" name="image">
+                              <input type="hidden" value="1" id="quantity" name="quantity">
+  
+  
+                              <button type="submit" class="custom-btn" title="add to cart" data-tip="Add to Cart">
+                                 Add TO Card
+                             </button>
+                             {{-- <a onclick="mySubmit();"  id="myForm" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a> --}}
+                         </form>
                            <span>${{$featured_product['price']}}</span>
                         </div>
                      </div>
